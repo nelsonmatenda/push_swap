@@ -39,8 +39,8 @@ t_node	*pop(t_list *lst)
 
 	if (lst->size == 0)
 		return (NULL);
-	node = lst;
-	lst = lst->begin->next;
+	node = lst->begin;
+	lst->begin = lst->begin->next;
 	lst->size--;
 	return (node);
 }
