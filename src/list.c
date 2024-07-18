@@ -15,8 +15,8 @@ t_list	*creat_list(void)
 	t_list	*lst;
 
 	lst = (t_list *)malloc(sizeof(t_list));
-	lst->begin = NULL;
-	lst->end = NULL;
+	lst->top = NULL;
+	lst->bottom = NULL;
 	lst->size = 0;
 	return (lst);
 }
@@ -27,9 +27,9 @@ void	push(t_list *lst, int value)
 	
 	new = create_node(value);
 	if (lst->size == 0)
-		lst->end = new;
-	new->next = lst->begin;
-	lst->begin = new;
+		lst->bottom = new;
+	new->next = lst->top;
+	lst->top = new;
 	lst->size++;
 }
 
@@ -39,8 +39,8 @@ t_node	*pop(t_list *lst)
 
 	if (lst->size == 0)
 		return (NULL);
-	node = lst->begin;
-	lst->begin = lst->begin->next;
+	node = lst->top;
+	lst->top = lst->top->next;
 	lst->size--;
 	return (node);
 }

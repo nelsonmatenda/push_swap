@@ -13,8 +13,8 @@ typedef struct s_node
 
 typedef struct s_list
 {
-	t_node	*begin;
-	t_node	*end;
+	t_node	*top;
+	t_node	*bottom;
 	size_t	size;
 }	t_list;
 
