@@ -1,9 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   list.h                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nfigueir <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/07/19 14:43:20 by nfigueir          #+#    #+#             */
+/*   Updated: 2024/07/19 16:16:34 by nfigueir         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef LIST_H
 # define LIST_H
 
 #include <stdlib.h>
 #include <unistd.h>
 #include <stdio.h> // TODO: dev
+#include "operation00.h"
+#include "operation01.h"
 
 typedef struct s_node
 {
