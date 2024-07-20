@@ -45,14 +45,17 @@ void	push(t_list *lst, int value)
 	lst->size++;
 }
 
-t_node	*pop(t_list *lst)
+int	*pop(t_list *lst)
 {
 	t_node *node;
+	int	value;
 
 	if (lst->size == 0)
 		return (NULL);
+	value = lst->top->value;
 	node = lst->top;
 	lst->top = lst->top->next;
 	lst->size--;
-	return (node);
+	free(node);
+	return (value);
 }

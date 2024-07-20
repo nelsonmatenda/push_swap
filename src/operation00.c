@@ -30,18 +30,10 @@ void	ss(t_list *a_lst, t_list *b_lst)
 
 void	pa(t_list *a_lst, t_list *b_lst)
 {
-	t_node *node;
-	
-	node = pop(b_lst);
-	push(a_lst, node->value);
-	free(node);
+	push(a_lst, pop(b_lst));
 }
 
 void	pb(t_list *a_lst, t_list *b_lst)
 {
-	t_node *node;
-	
-	node = pop(a_lst);
-	push(b_lst, node->value);
-	free(node);
+	push(b_lst, pop(a_lst));
 }
