@@ -10,3 +10,24 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../includes/list.h"
+
+void	ra(t_list *lst)
+{
+	if (lst->size > 1)
+		add_bottom(lst, pop(lst));
+}
+
+void	rb(t_list *lst)
+{
+	if (lst->size > 1)
+		add_bottom(lst, pop(lst));
+}
+
+void	rr (t_list *a_lst, t_list *b_lst)
+{
+	ra(a_lst);
+	rb(b_lst);
+}
+
+

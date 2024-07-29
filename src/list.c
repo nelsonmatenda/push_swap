@@ -17,8 +17,11 @@ t_node	*create_node(int value)
 	t_node	*node;
 
 	node = (t_node *)malloc(sizeof(t_node));
+	if (!node)
+		return (NULL);
 	node->value = value;
 	node->next = NULL;
+	node->prev = NULL;
 	return (node);
 }
 
@@ -27,6 +30,8 @@ t_list	*creat_list(void)
 	t_list	*lst;
 
 	lst = (t_list *)malloc(sizeof(t_list));
+	if (!lst)
+		return (NULL);
 	lst->top = NULL;
 	lst->bottom = NULL;
 	lst->size = 0;
@@ -36,11 +41,15 @@ t_list	*creat_list(void)
 void	push(t_list *lst, int value)
 {
 	t_node	*new;
-	
+
 	new = create_node(value);
-	if (lst->size == 0)
-		lst->bottom = new;
+	if (!new)
+		return;
 	new->next = lst->top;
+	if (lst->size == 0) // list is empty
+		lst->bottom = new;
+	else // with element
+		lst->top->prev = new;
 	lst->top = new;
 	lst->size++;
 }
