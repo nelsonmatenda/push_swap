@@ -31,21 +31,30 @@ void    add_bottom (t_list *lst, int value)
 	t_node	*node;
 
 	node = create_node(value);
+	if (!node || !lst)
+		return;
 	lst->bottom->next = node;
 	lst->bottom = node;
 	node->next = NULL;
+	lst->size++;
 }
 
 int	pop_bottom (t_list *lst)
 {
-	t_node *node;
+	t_node	*node;
 	int	value;
 
-	if (lst->size == 0)
-		return (NULL);
+	if (!lst && lst->size == 0)
+		return (-1);
 	value = lst->bottom->value;
 	node = lst->bottom;
 	lst->bottom = lst->bottom->prev;
+	if (lst->top == node)
+	{
+		lst->top == NULL;
+	}
+	else
+		lst->bottom->next = NULL;
 	lst->size--;
 	free(node);
 	return (value);
