@@ -16,8 +16,10 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <stdio.h> // TODO: dev
+#include "operations_utils.h"
 #include "operation00.h"
 #include "operation01.h"
+
 
 typedef struct s_node
 {
@@ -36,6 +38,6 @@ typedef struct s_list
 t_node	*create_node(int value);
 t_list	*creat_list(void);
 void	push(t_list *lst, int value);
-t_node	*pop(t_list *lst);
+int	pop(t_list *lst);
 
 #endif

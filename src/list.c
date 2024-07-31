@@ -66,7 +66,7 @@ int	pop(t_list *lst)
 	lst->top = lst->top->next;
 	if (lst->bottom == node)
 	{
-		lst->bottom == NULL;
+		lst->bottom = NULL;
 	}
 	else
 		lst->top->prev = NULL;

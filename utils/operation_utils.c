@@ -51,11 +51,41 @@ int	pop_bottom (t_list *lst)
 	lst->bottom = lst->bottom->prev;
 	if (lst->top == node)
 	{
-		lst->top == NULL;
+		lst->top = NULL;
 	}
 	else
 		lst->bottom->next = NULL;
 	lst->size--;
 	free(node);
 	return (value);
+}
+
+void	shift_up(t_list *lst)
+{
+	int	value;
+
+	if (!lst)
+		return;
+	if (lst->size > 1)
+	{
+		value = pop(lst);
+		if (value < 0)
+			return;
+		add_bottom(lst, value);
+	}
+}
+
+void	shift_down(t_list *lst)
+{
+	int	value;
+
+	if (!lst)
+		return;
+	if (lst->size > 1)
+	{
+		value = pop_bottom(lst);
+		if (value < 0)
+			return;
+		push(lst, value);
+	}
 }

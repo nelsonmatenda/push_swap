@@ -10,3 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef OPERATION01_H
+# define OPERATION01_H
+
+void	ra(t_list *lst);
+void	rb(t_list *lst);
+void	rr (t_list *a_lst, t_list *b_lst);
+void	rra(t_list *lst);
+void	rrb(t_list *lst);
+
+#endif
