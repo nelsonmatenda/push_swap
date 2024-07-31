@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operation01.h                                      :+:      :+:    :+:   */
+/*   operations_utils.h                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nfigueir <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/19 14:42:55 by nfigueir          #+#    #+#             */
-/*   Updated: 2024/07/19 14:42:56 by nfigueir         ###   ########.fr       */
+/*   Created: 2024/07/31 10:46:11 by codespace         #+#    #+#             */
+/*   Updated: 2024/07/31 12:34:52 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef OPERATION01_H
-# define OPERATION01_H
+#ifndef OPERATIONS_UTILS_H
+# define OPERATIONS_UTILS_H
 
-void	ra(t_list *lst);
-void	rb(t_list *lst);
-void	rr (t_list *a_lst, t_list *b_lst);
-void	rra(t_list *lst);
-void	rrb(t_list *lst);
+void	swap(t_list *lst);
+void	add_bottom (t_list *lst, int value);
+int		pop_bottom (t_list *lst);
+void	shift_up(t_list *lst);
+void	shift_down(t_list *lst);
 
 #endif

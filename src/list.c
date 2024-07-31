@@ -43,7 +43,7 @@ void	push(t_list *lst, int value)
 	t_node	*new;
 
 	new = create_node(value);
-	if (!new)
+	if (!new || !lst)
 		return;
 	new->next = lst->top;
 	if (lst->size == 0) // list is empty
@@ -54,16 +54,22 @@ void	push(t_list *lst, int value)
 	lst->size++;
 }
 
-int	*pop(t_list *lst)
+int	pop(t_list *lst)
 {
-	t_node *node;
+	t_node	*node;
 	int	value;
 
-	if (lst->size == 0)
-		return (NULL);
+	if (!lst && lst->size == 0)
+		return (-1);
 	value = lst->top->value;
 	node = lst->top;
 	lst->top = lst->top->next;
+	if (lst->bottom == node)
+	{
+		lst->bottom = NULL;
+	}
+	else
+		lst->top->prev = NULL;
 	lst->size--;
 	free(node);
 	return (value);

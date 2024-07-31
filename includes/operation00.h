@@ -13,6 +13,10 @@
 #ifndef OPERATION00_H
 #define OPERATION00_H
 
-
+void	sa(t_list *lst);
+void	sb(t_list *lst);
+void	ss(t_list *a_lst, t_list *b_lst);
+void	pa(t_list *a_lst, t_list *b_lst);
+void	pb(t_list *a_lst, t_list *b_lst);
 
 #endif

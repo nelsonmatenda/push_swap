@@ -30,10 +30,20 @@ void	ss(t_list *a_lst, t_list *b_lst)
 
 void	pa(t_list *a_lst, t_list *b_lst)
 {
-	push(a_lst, pop(b_lst));
+	int value;
+
+	value = pop(b_lst);
+	if (value < 0)
+		return;
+	push(a_lst, value);
 }
 
 void	pb(t_list *a_lst, t_list *b_lst)
 {
-	push(b_lst, pop(a_lst));
+	int value;
+
+	value = pop(a_lst);
+	if (value < 0)
+		return;
+	push(b_lst, value);
 }

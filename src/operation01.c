@@ -14,14 +14,12 @@
 
 void	ra(t_list *lst)
 {
-	if (lst->size > 1)
-		add_bottom(lst, pop(lst));
+	rotate_top(lst);
 }
 
 void	rb(t_list *lst)
 {
-	if (lst->size > 1)
-		add_bottom(lst, pop(lst));
+	rotate_top(lst);
 }
 
 void	rr (t_list *a_lst, t_list *b_lst)
@@ -30,4 +28,12 @@ void	rr (t_list *a_lst, t_list *b_lst)
 	rb(b_lst);
 }
 
+void	rra(t_list *lst)
+{
+	shift_down(lst);
+}
 
+void	rrb(t_list *lst)
+{
+	shift_down(lst);
+}
