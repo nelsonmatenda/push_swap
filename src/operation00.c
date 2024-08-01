@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/list.h"
+#include "../includes/operation00.h"
 
 void	sa(t_list *lst)
 {

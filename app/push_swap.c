@@ -11,6 +11,8 @@
 /* ************************************************************************** */
 
 #include "../includes/list.h"
+#include "../includes/operation00.h"
+#include "../includes/operation01.h"
 
 void	print_list(t_list *lst)
 {
@@ -29,19 +31,29 @@ int main(int ac, char **av)
 {
 	(void)av;
 	(void)ac;
-	t_list	*lst;
-	
+	t_list	*a;
+	t_list	*b;
+
 	//if (ac < 2)
 	//	return (-1);
-	lst = creat_list();
-	push(lst, 10);
-	push(lst, 20);
-	push(lst,5);
-	push(lst, 60);
-	print_list(lst);
-	pop(lst);
-	print_list(lst);
-		
+	a = create_list();
+	b = create_list();
+	push(a, 10);
+	push(a, 130);
+	push(a, 4);
+	push(a, 90);
+	push(a, 20);
+	push(b, 1);
+	push(b, 2);
+	push(b, 3);
+	push(a,5);
+	push(a, 60);
+	print_list(a);
+	pop(a);
+	print_list(a);
+	pb(a, b);
+	print_list(a);
+
 
 	return (0);
 }

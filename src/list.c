@@ -25,7 +25,7 @@ t_node	*create_node(int value)
 	return (node);
 }
 
-t_list	*creat_list(void)
+t_list	*create_list(void)
 {
 	t_list	*lst;
 

@@ -10,16 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/list.h"
+#include "../includes/operation01.h"
 
 void	ra(t_list *lst)
 {
-	rotate_top(lst);
+	shift_up(lst);
 }
 
 void	rb(t_list *lst)
 {
-	rotate_top(lst);
+	shift_up(lst);
 }
 
 void	rr (t_list *a_lst, t_list *b_lst)
