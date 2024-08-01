@@ -10,8 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+
+
 #ifndef OPERATIONS_UTILS_H
 # define OPERATIONS_UTILS_H
+
+#include "list.h"
 
 void	swap(t_list *lst);
 void	add_bottom (t_list *lst, int value);

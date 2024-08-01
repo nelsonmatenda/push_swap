@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/list.h"
+#include "../includes/operations_utils.h"
 
 void	swap(t_list *lst)
 {

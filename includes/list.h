@@ -16,9 +16,6 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <stdio.h> // TODO: dev
-#include "operations_utils.h"
-#include "operation00.h"
-#include "operation01.h"
 
 
 typedef struct s_node

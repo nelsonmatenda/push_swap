@@ -10,8 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+
+
 #ifndef OPERATION01_H
 # define OPERATION01_H
+
+#include "list.h"
 
 void	ra(t_list *lst);
 void	rb(t_list *lst);

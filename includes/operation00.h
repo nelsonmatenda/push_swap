@@ -13,6 +13,8 @@
 #ifndef OPERATION00_H
 #define OPERATION00_H
 
+#include "list.h"
+
 void	sa(t_list *lst);
 void	sb(t_list *lst);
 void	ss(t_list *a_lst, t_list *b_lst);
