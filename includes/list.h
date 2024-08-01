@@ -17,7 +17,6 @@
 #include <unistd.h>
 #include <stdio.h> // TODO: dev
 
-
 typedef struct s_node
 {
 	int	value;
@@ -33,7 +32,7 @@ typedef struct s_list
 }	t_list;
 
 t_node	*create_node(int value);
-t_list	*creat_list(void);
+t_list	*create_list(void);
 void	push(t_list *lst, int value);
 int	pop(t_list *lst);
 

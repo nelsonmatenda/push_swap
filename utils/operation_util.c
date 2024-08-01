@@ -10,7 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/operations_utils.h"
+#include "../includes/operation_util.h"
+
 
 void	swap(t_list *lst)
 {
