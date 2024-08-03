@@ -10,7 +10,7 @@ UTIL_OBJ = $(addprefix $(DIR_OBJ), $(UTILS:.c=.o))
 
 all: $(NAME)
 
-$(NAME):  $(DIR_OBJ) $(SRC_OBJ) $(UTIL_OBJ)
+$(NAME): $(APP) $(DIR_OBJ) $(SRC_OBJ) $(UTIL_OBJ)
 	cc $(FLAGS) $(APP) $(SRC_OBJ) $(UTIL_OBJ) -o $(NAME)
 
 $(DIR_OBJ)%.o: ./src/%.c ./includes/%.h

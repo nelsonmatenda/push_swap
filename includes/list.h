@@ -31,9 +31,21 @@ typedef struct s_list
 	size_t	size;
 }	t_list;
 
+typedef struct s_value
+{
+	int	value;
+	int	error;
+} t_value;
+
+typedef enum e_error
+{
+	EMPTY_LIST = -77,
+	SUCCESS = 1
+} t_error;
+
 t_node	*create_node(int value);
 t_list	*create_list(void);
 void	push(t_list *lst, int value);
-int	pop(t_list *lst);
+t_value	pop(t_list *lst);
 
 #endif
