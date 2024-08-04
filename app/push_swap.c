@@ -14,11 +14,6 @@
 #include "../includes/operation00.h"
 #include "../includes/operation01.h"
 
-typedef enum 
-{
-	MALLOC_ERROR = -1,
-} e_error;
-
 void	print_list(t_list *lst)
 {
 	t_node	*p;
