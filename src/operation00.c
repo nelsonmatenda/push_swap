@@ -12,42 +12,42 @@
 
 #include "../includes/operation00.h"
 
-void	sa(t_list *lst)
+void	sa(t_stack *lst)
 {
 	if(swap(lst) == SUCCESS)
 		write(1, "sa\n", sizeof("sa\n"));
 }
 
-void	sb(t_list *lst)
+void	sb(t_stack *lst)
 {
 	if(swap(lst) == SUCCESS)
 		write(1, "sb\n", sizeof("sb\n"));
 }
 
-void	ss(t_list *a_lst, t_list *b_lst)
+void	ss(t_stack *a_lst, t_stack *b_lst)
 {
-	
+
 	if (swap(a_lst) == SUCCESS && swap(b_lst) == SUCCESS)
 		write(1, "ss\n", sizeof("ss\n"));
 }
 
-void	pa(t_list *a_lst, t_list *b_lst)
+void	pa(t_stack *a_lst, t_stack *b_lst)
 {
 	t_value popped;
 
 	popped = pop(b_lst);
-	if (popped.error == EMPTY_LIST)
+	if (popped.error == EMPTY_STACK)
 		return;
 	push(a_lst, popped.value);
 	write(1, "pa\n", sizeof("pa\n"));
 }
 
-void	pb(t_list *a_lst, t_list *b_lst)
+void	pb(t_stack *a_lst, t_stack *b_lst)
 {
 	t_value popped;
 
 	popped = pop(a_lst);
-	if (popped.error == EMPTY_LIST)
+	if (popped.error == EMPTY_STACK)
 		return;
 	push(b_lst, popped.value);
 	write(1, "pb\n", sizeof("pb\n"));

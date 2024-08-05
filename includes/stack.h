@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list.h                                             :+:      :+:    :+:   */
+/*   stack.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfigueir <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/19 14:43:20 by nfigueir          #+#    #+#             */
-/*   Updated: 2024/07/19 16:16:34 by nfigueir         ###   ########.fr       */
+/*   Created: 2024/08/05 12:43:02 by nfigueir          #+#    #+#             */
+/*   Updated: 2024/08/05 12:43:02 by nfigueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIST_H
-# define LIST_H
+#ifndef STACK_H
+# define STACK_H
 
 #include <stdlib.h>
 #include <unistd.h>
@@ -24,12 +24,12 @@ typedef struct s_node
 	struct s_node	*prev;
 }	t_node;
 
-typedef struct s_list
+typedef struct s_stack
 {
 	t_node	*top;
 	t_node	*bottom;
 	size_t	size;
-}	t_list;
+}	t_stack;
 
 typedef struct s_value
 {
@@ -40,14 +40,14 @@ typedef struct s_value
 enum e_error
 {
 	NULL_POINTER = -70,
-	EMPTY_LIST = -77,
+	EMPTY_STACK = -77,
 	ONE_NODE = -33,
 	SUCCESS = 1
 };
 
 t_node	*create_node(int value);
-t_list	*create_list(void);
-void	push(t_list *lst, int value);
-t_value	pop(t_list *lst);
+t_stack	*create_stack(void);
+void	push(t_stack *lst, int value);
+t_value	pop(t_stack *lst);
 
 #endif

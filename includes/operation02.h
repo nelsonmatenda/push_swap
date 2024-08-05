@@ -6,7 +6,7 @@
 /*   By: nfigueir <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 11:10:22 by nfigueir          #+#    #+#             */
-/*   Updated: 2024/08/05 11:21:18 by nfigueir         ###   ########.fr       */
+/*   Updated: 2024/08/05 12:40:06 by nfigueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,6 @@
 
 #include "operation_util.h"
 
-void	rrr(t_list *a_list, t_list *b_list);
+void	rrr(t_stack *a_stack, t_stack *b_stack);
 
 #endif

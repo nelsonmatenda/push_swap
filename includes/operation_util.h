@@ -13,12 +13,12 @@
 #ifndef OPERATION_UTIL_H
 # define OPERATION_UTIL_H
 
-#include "list.h"
+#include "stack.h"
 
-int	swap(t_list *lst);
-void	add_bottom (t_list *lst, int value);
-t_value		pop_bottom (t_list *lst);
-int	shift_up(t_list *lst);
-int	shift_down(t_list *lst);
+int	swap(t_stack *lst);
+void	add_bottom (t_stack *lst, int value);
+t_value		pop_bottom (t_stack *lst);
+int	shift_up(t_stack *lst);
+int	shift_down(t_stack *lst);
 
 #endif

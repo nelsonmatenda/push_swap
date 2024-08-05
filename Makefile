@@ -1,4 +1,4 @@
-SRCS = list.c operation00.c operation01.c operation02.c
+SRCS = stack.c operation00.c operation01.c operation02.c
 UTILS = operation_util.c
 DIR_OBJ = ./obj/
 DIR_UTIL = ./utils/

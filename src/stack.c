@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/list.h"
+#include "../includes/stack.h"
 
 t_node	*create_node(int value)
 {
@@ -25,11 +25,11 @@ t_node	*create_node(int value)
 	return (node);
 }
 
-t_list	*create_list(void)
+t_stack	*create_stack(void)
 {
-	t_list	*lst;
+	t_stack	*lst;
 
-	lst = (t_list *)malloc(sizeof(t_list));
+	lst = (t_stack *)malloc(sizeof(t_stack));
 	if (!lst)
 		return (NULL);
 	lst->top = NULL;
@@ -38,7 +38,7 @@ t_list	*create_list(void)
 	return (lst);
 }
 
-void	push(t_list *lst, int value)
+void	push(t_stack *lst, int value)
 {
 	t_node	*new;
 
@@ -54,14 +54,14 @@ void	push(t_list *lst, int value)
 	lst->size++;
 }
 
-t_value	pop(t_list *lst)
+t_value	pop(t_stack *lst)
 {
 	t_node	*node;
 	t_value	popped;
 
 	if (!lst || lst->size == 0)
 	{
-		popped.error = EMPTY_LIST;
+		popped.error = EMPTY_STACK;
 		popped.value = -42;
 		return (popped);
 	}

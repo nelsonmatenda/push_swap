@@ -6,7 +6,7 @@
 /*   By: nfigueir <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 14:42:55 by nfigueir          #+#    #+#             */
-/*   Updated: 2024/07/19 14:42:56 by nfigueir         ###   ########.fr       */
+/*   Updated: 2024/08/05 12:40:00 by nfigueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@
 
 #include "operation_util.h"
 
-void	ra(t_list *lst);
-void	rb(t_list *lst);
-void	rr (t_list *a_lst, t_list *b_lst);
-void	rra(t_list *lst);
-void	rrb(t_list *lst);
+void	ra(t_stack *lst);
+void	rb(t_stack *lst);
+void	rr (t_stack *a_lst, t_stack *b_lst);
+void	rra(t_stack *lst);
+void	rrb(t_stack *lst);
 
 #endif

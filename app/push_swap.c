@@ -10,12 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/list.h"
+#include "../includes/stack.h"
 #include "../includes/operation00.h"
 #include "../includes/operation01.h"
 #include "../includes/operation02.h"
 
-void	print_list(t_list *lst)
+void	print_stack(t_stack *lst)
 {
 	t_node	*p;
 
@@ -31,12 +31,12 @@ void	print_list(t_list *lst)
 int main(int ac, char **av)
 {
 	(void)ac; (void)av;
-	t_list	*a;
-	t_list	*b;
+	t_stack	*a;
+	t_stack	*b;
 	//int		i;
 
-	a = create_list();
-	b = create_list();
+	a = create_stack();
+	b = create_stack();
 	// if (!a || !b)
 	// {
 	// 	write(1, "Error\n", sizeof("Error\n"));
@@ -53,35 +53,35 @@ int main(int ac, char **av)
 	push(b, 6);
 	push(b, 7);
 	push(b, 8);
-	print_list(a);
-	print_list(b);
+	print_stack(a);
+	print_stack(b);
 	sa(a);
 	sb (b);
-	print_list(a);
-	print_list(b);
+	print_stack(a);
+	print_stack(b);
 	ss(a, b);
-	print_list(a);
-	print_list(b);
+	print_stack(a);
+	print_stack(b);
 	pa(a,b);
-	print_list(a);
-	print_list(b);
+	print_stack(a);
+	print_stack(b);
 	pb(a, b);
-	print_list(a);
-	print_list(b);
+	print_stack(a);
+	print_stack(b);
 	ra(a);
 	rb(b);
-	print_list(a);
-	print_list(b);
+	print_stack(a);
+	print_stack(b);
 	rr(a, b);
-	print_list(a);
-	print_list(b);
+	print_stack(a);
+	print_stack(b);
 	rra(a);
 	rrb(a);
-	print_list(a);
-	print_list(b);
+	print_stack(a);
+	print_stack(b);
 	rrr(a, b);
-	print_list(a);
-	print_list(b);
+	print_stack(a);
+	print_stack(b);
 
 	return (0);
 }
