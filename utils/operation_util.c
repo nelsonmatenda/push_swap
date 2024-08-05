@@ -40,53 +40,56 @@ void    add_bottom (t_list *lst, int value)
 	lst->size++;
 }
 
-int	pop_bottom (t_list *lst)
+t_value	pop_bottom (t_list *lst)
 {
 	t_node	*node;
-	int	value;
+	t_value	popped;
 
-	if (!lst && lst->size == 0)
-		return (-1);
-	value = lst->bottom->value;
+	if (!lst || lst->size == 0)
+	{
+		popped.error = EMPTY_LIST;
+		popped.value = -42;
+		return (popped);
+	}
+	popped.error = SUCCESS;
+	popped.value = lst->bottom->value;
 	node = lst->bottom;
 	lst->bottom = lst->bottom->prev;
 	if (lst->top == node)
-	{
 		lst->top = NULL;
-	}
 	else
 		lst->bottom->next = NULL;
 	lst->size--;
 	free(node);
-	return (value);
+	return (popped);
 }
 
 void	shift_up(t_list *lst)
 {
-	int	value;
+	t_value	popped;
 
 	if (!lst)
 		return;
 	if (lst->size > 1)
 	{
-		value = pop(lst);
-		if (value < 0)
+		popped = pop(lst);
+		if (popped.error == EMPTY_LIST)
 			return;
-		add_bottom(lst, value);
+		add_bottom(lst, popped.value);
 	}
 }
 
 void	shift_down(t_list *lst)
 {
-	int	value;
+	t_value	popped;
 
 	if (!lst)
 		return;
 	if (lst->size > 1)
 	{
-		value = pop_bottom(lst);
-		if (value < 0)
+		popped = pop_bottom(lst);
+		if (popped.error == EMPTY_LIST)
 			return;
-		push(lst, value);
+		push(lst, popped.value);
 	}
 }

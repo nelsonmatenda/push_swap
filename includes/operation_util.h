@@ -17,7 +17,7 @@
 
 void	swap(t_list *lst);
 void	add_bottom (t_list *lst, int value);
-int		pop_bottom (t_list *lst);
+t_value		pop_bottom (t_list *lst);
 void	shift_up(t_list *lst);
 void	shift_down(t_list *lst);
 

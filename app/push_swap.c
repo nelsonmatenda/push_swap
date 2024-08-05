@@ -29,20 +29,19 @@ void	print_list(t_list *lst)
 
 int main(int ac, char **av)
 {
-	int	i;
 	t_list	*a;
-	//t_list	*b;
+	t_list	*b;
+	int		i;
 
 	a = create_list();
-	//b = create_list();
-	i = 1;
-	while (i < ac)
+	b = create_list();
+	if (!a || !b)
 	{
-		push(a, atoi(av[i]));
-		i++;
+		write(1, "Error\n", sizeof("Error\n"));
+		exit (EXIT_FAILURE);
 	}
-	print_list(a);
-
-
+	i = ac;
+	while (--i > 0)
+		push(a, atoi(av[i]));
 	return (0);
 }

@@ -30,20 +30,20 @@ void	ss(t_list *a_lst, t_list *b_lst)
 
 void	pa(t_list *a_lst, t_list *b_lst)
 {
-	int value;
+	t_value popped;
 
-	value = pop(b_lst);
-	if (value < 0)
+	popped = pop(b_lst);
+	if (popped.error == EMPTY_LIST)
 		return;
-	push(a_lst, value);
+	push(a_lst, popped.value);
 }
 
 void	pb(t_list *a_lst, t_list *b_lst)
 {
-	int value;
+	t_value popped;
 
-	value = pop(a_lst);
-	if (value < 0)
+	popped = pop(a_lst);
+	if (popped.error == EMPTY_LIST)
 		return;
-	push(b_lst, value);
+	push(b_lst, popped.value);
 }

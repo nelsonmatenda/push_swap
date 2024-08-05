@@ -54,23 +54,26 @@ void	push(t_list *lst, int value)
 	lst->size++;
 }
 
-int	pop(t_list *lst)
+t_value	pop(t_list *lst)
 {
 	t_node	*node;
-	int	value;
+	t_value	popped;
 
-	if (!lst && lst->size == 0)
-		return (-1);
-	value = lst->top->value;
+	if (!lst || lst->size == 0)
+	{
+		popped.error = EMPTY_LIST;
+		popped.value = -42;
+		return (popped);
+	}
+	popped.error = SUCCESS;
+	popped.value = lst->top->value;
 	node = lst->top;
 	lst->top = lst->top->next;
 	if (lst->bottom == node)
-	{
 		lst->bottom = NULL;
-	}
 	else
 		lst->top->prev = NULL;
 	lst->size--;
 	free(node);
-	return (value);
+	return (popped);
 }
