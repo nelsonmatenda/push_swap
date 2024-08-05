@@ -13,93 +13,93 @@
 #include "../includes/operation_util.h"
 
 
-int	swap(t_stack *lst)
+int	swap(t_stack *stk)
 {
 	t_node	*aux;
-	if (!lst)
+	if (!stk)
 		return NULL_POINTER;
-	if (lst->size > 1)
+	if (stk->size > 1)
 	{
-		aux = lst->top;
-		lst->top = aux->next;
-		aux->next = lst->top->next;
-		lst->top->next = aux;
+		aux = stk->top;
+		stk->top = aux->next;
+		aux->next = stk->top->next;
+		stk->top->next = aux;
 		return SUCCESS;
 	}
 	else
 		return ONE_NODE;
 }
 
-void    add_bottom (t_stack *lst, int value)
+void    add_bottom (t_stack *stk, int value)
 {
 	t_node	*new;
 
 	new = create_node(value);
-	if (!new || !lst)
+	if (!new || !stk)
 		return;
-	new->prev = lst->bottom;
-	if (lst->size == 0)
-		lst->top = new;
+	new->prev = stk->bottom;
+	if (stk->size == 0)
+		stk->top = new;
 	else
-		lst->bottom->next = new;
-	lst->bottom = new;
-	lst->size++;
+		stk->bottom->next = new;
+	stk->bottom = new;
+	stk->size++;
 }
 
-t_value	pop_bottom (t_stack *lst)
+t_value	pop_bottom (t_stack *stk)
 {
 	t_node	*node;
 	t_value	popped;
 
-	if (!lst || lst->size == 0)
+	if (!stk || stk->size == 0)
 	{
 		popped.error = EMPTY_STACK;
 		popped.value = -42;
 		return (popped);
 	}
 	popped.error = SUCCESS;
-	popped.value = lst->bottom->value;
-	node = lst->bottom;
-	lst->bottom = lst->bottom->prev;
-	if (lst->top == node)
-		lst->top = NULL;
+	popped.value = stk->bottom->value;
+	node = stk->bottom;
+	stk->bottom = stk->bottom->prev;
+	if (stk->top == node)
+		stk->top = NULL;
 	else
-		lst->bottom->next = NULL;
-	lst->size--;
+		stk->bottom->next = NULL;
+	stk->size--;
 	free(node);
 	return (popped);
 }
 
-int	shift_up(t_stack *lst)
+int	shift_up(t_stack *stk)
 {
 	t_value	popped;
 
-	if (!lst)
+	if (!stk)
 		return (NULL_POINTER);
-	if (lst->size > 1)
+	if (stk->size > 1)
 	{
-		popped = pop(lst);
+		popped = pop(stk);
 		if (popped.error == EMPTY_STACK)
 			return (EMPTY_STACK);
-		add_bottom(lst, popped.value);
+		add_bottom(stk, popped.value);
 		return (SUCCESS);
 	}
 	else
 		return (ONE_NODE);
 }
 
-int	shift_down(t_stack *lst)
+int	shift_down(t_stack *stk)
 {
 	t_value	popped;
 
-	if (!lst)
+	if (!stk)
 		return (NULL_POINTER);
-	if (lst->size > 1)
+	if (stk->size > 1)
 	{
-		popped = pop_bottom(lst);
+		popped = pop_bottom(stk);
 		if (popped.error == EMPTY_STACK)
 			return (EMPTY_STACK);
-		push(lst, popped.value);
+		push(stk, popped.value);
 		return (SUCCESS);
 	}
 	else

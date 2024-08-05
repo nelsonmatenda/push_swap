@@ -27,53 +27,53 @@ t_node	*create_node(int value)
 
 t_stack	*create_stack(void)
 {
-	t_stack	*lst;
+	t_stack	*stk;
 
-	lst = (t_stack *)malloc(sizeof(t_stack));
-	if (!lst)
+	stk = (t_stack *)malloc(sizeof(t_stack));
+	if (!stk)
 		return (NULL);
-	lst->top = NULL;
-	lst->bottom = NULL;
-	lst->size = 0;
-	return (lst);
+	stk->top = NULL;
+	stk->bottom = NULL;
+	stk->size = 0;
+	return (stk);
 }
 
-void	push(t_stack *lst, int value)
+void	push(t_stack *stk, int value)
 {
 	t_node	*new;
 
 	new = create_node(value);
-	if (!new || !lst)
+	if (!new || !stk)
 		return;
-	new->next = lst->top;
-	if (lst->size == 0) // list is empty
-		lst->bottom = new;
+	new->next = stk->top;
+	if (stk->size == 0) // list is empty
+		stk->bottom = new;
 	else // with element
-		lst->top->prev = new;
-	lst->top = new;
-	lst->size++;
+		stk->top->prev = new;
+	stk->top = new;
+	stk->size++;
 }
 
-t_value	pop(t_stack *lst)
+t_value	pop(t_stack *stk)
 {
 	t_node	*node;
 	t_value	popped;
 
-	if (!lst || lst->size == 0)
+	if (!stk || stk->size == 0)
 	{
 		popped.error = EMPTY_STACK;
 		popped.value = -42;
 		return (popped);
 	}
 	popped.error = SUCCESS;
-	popped.value = lst->top->value;
-	node = lst->top;
-	lst->top = lst->top->next;
-	if (lst->bottom == node)
-		lst->bottom = NULL;
+	popped.value = stk->top->value;
+	node = stk->top;
+	stk->top = stk->top->next;
+	if (stk->bottom == node)
+		stk->bottom = NULL;
 	else
-		lst->top->prev = NULL;
-	lst->size--;
+		stk->top->prev = NULL;
+	stk->size--;
 	free(node);
 	return (popped);
 }

@@ -15,10 +15,10 @@
 
 #include "operation_util.h"
 
-void	sa(t_stack *lst);
-void	sb(t_stack *lst);
-void	ss(t_stack *a_lst, t_stack *b_lst);
-void	pa(t_stack *a_lst, t_stack *b_lst);
-void	pb(t_stack *a_lst, t_stack *b_lst);
+void	sa(t_stack *stk);
+void	sb(t_stack *stk);
+void	ss(t_stack *a_stk, t_stack *b_stk);
+void	pa(t_stack *a_stk, t_stack *b_stk);
+void	pb(t_stack *a_stk, t_stack *b_stk);
 
 #endif

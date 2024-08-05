@@ -47,7 +47,7 @@ enum e_error
 
 t_node	*create_node(int value);
 t_stack	*create_stack(void);
-void	push(t_stack *lst, int value);
-t_value	pop(t_stack *lst);
+void	push(t_stack *stk, int value);
+t_value	pop(t_stack *stk);
 
 #endif

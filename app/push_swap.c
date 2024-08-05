@@ -15,11 +15,11 @@
 #include "../includes/operation01.h"
 #include "../includes/operation02.h"
 
-void	print_stack(t_stack *lst)
+void	print_stack(t_stack *stk)
 {
 	t_node	*p;
 
-	p = lst->top;
+	p = stk->top;
 	while (p != NULL)
 	{
 		printf("%d ", p->value);
