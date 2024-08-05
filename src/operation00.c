@@ -14,18 +14,21 @@
 
 void	sa(t_list *lst)
 {
-	swap(lst);
+	if(swap(lst) == SUCCESS)
+		write(1, "sa\n", sizeof("sa\n"));
 }
 
 void	sb(t_list *lst)
 {
-	swap(lst);
+	if(swap(lst) == SUCCESS)
+		write(1, "sb\n", sizeof("sb\n"));
 }
 
 void	ss(t_list *a_lst, t_list *b_lst)
 {
-	swap(a_lst);
-	swap(b_lst);
+	
+	if (swap(a_lst) == SUCCESS && swap(b_lst) == SUCCESS)
+		write(1, "ss\n", sizeof("ss\n"));
 }
 
 void	pa(t_list *a_lst, t_list *b_lst)
@@ -36,6 +39,7 @@ void	pa(t_list *a_lst, t_list *b_lst)
 	if (popped.error == EMPTY_LIST)
 		return;
 	push(a_lst, popped.value);
+	write(1, "pa\n", sizeof("pa\n"));
 }
 
 void	pb(t_list *a_lst, t_list *b_lst)
@@ -46,4 +50,5 @@ void	pb(t_list *a_lst, t_list *b_lst)
 	if (popped.error == EMPTY_LIST)
 		return;
 	push(b_lst, popped.value);
+	write(1, "pb\n", sizeof("pb\n"));
 }

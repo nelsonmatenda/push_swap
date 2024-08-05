@@ -37,11 +37,13 @@ typedef struct s_value
 	int	error;
 } t_value;
 
-typedef enum e_error
+enum e_error
 {
+	NULL_POINTER = -70,
 	EMPTY_LIST = -77,
+	ONE_NODE = -33,
 	SUCCESS = 1
-} t_error;
+};
 
 t_node	*create_node(int value);
 t_list	*create_list(void);

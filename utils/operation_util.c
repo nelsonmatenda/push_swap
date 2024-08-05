@@ -13,30 +13,36 @@
 #include "../includes/operation_util.h"
 
 
-void	swap(t_list *lst)
+int	swap(t_list *lst)
 {
 	t_node	*aux;
+	if (!lst)
+		return NULL_POINTER;
 	if (lst->size > 1)
 	{
 		aux = lst->top;
 		lst->top = aux->next;
 		aux->next = lst->top->next;
 		lst->top->next = aux;
+		return SUCCESS;
 	}
 	else
-		return;
+		return ONE_NODE;
 }
 
 void    add_bottom (t_list *lst, int value)
 {
-	t_node	*node;
+	t_node	*new;
 
-	node = create_node(value);
-	if (!node || !lst)
+	new = create_node(value);
+	if (!new || !lst)
 		return;
-	lst->bottom->next = node;
-	lst->bottom = node;
-	node->next = NULL;
+	new->prev = lst->bottom;
+	if (lst->size == 0)
+		lst->top = new;
+	else
+		lst->bottom->next = new;
+	lst->bottom = new;
 	lst->size++;
 }
 
@@ -64,32 +70,38 @@ t_value	pop_bottom (t_list *lst)
 	return (popped);
 }
 
-void	shift_up(t_list *lst)
+int	shift_up(t_list *lst)
 {
 	t_value	popped;
 
 	if (!lst)
-		return;
+		return (NULL_POINTER);
 	if (lst->size > 1)
 	{
 		popped = pop(lst);
 		if (popped.error == EMPTY_LIST)
-			return;
+			return (EMPTY_LIST);
 		add_bottom(lst, popped.value);
+		return (SUCCESS);
 	}
+	else
+		return (ONE_NODE);
 }
 
-void	shift_down(t_list *lst)
+int	shift_down(t_list *lst)
 {
 	t_value	popped;
 
 	if (!lst)
-		return;
+		return (NULL_POINTER);
 	if (lst->size > 1)
 	{
 		popped = pop_bottom(lst);
 		if (popped.error == EMPTY_LIST)
-			return;
+			return (EMPTY_LIST);
 		push(lst, popped.value);
+		return (SUCCESS);
 	}
+	else
+		return (ONE_NODE);
 }
