@@ -19,23 +19,23 @@
 
 typedef struct s_node
 {
-	int	value;
+	int				value;
 	struct s_node	*next;
 	struct s_node	*prev;
-}	t_node;
+}					t_node;
 
 typedef struct s_stack
 {
 	t_node	*top;
 	t_node	*bottom;
 	size_t	size;
-}	t_stack;
+}			t_stack;
 
 typedef struct s_value
 {
 	int	value;
 	int	error;
-} t_value;
+} 		t_value;
 
 enum e_error
 {

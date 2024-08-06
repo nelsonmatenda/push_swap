@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #ifndef OPERATION00_H
-#define OPERATION00_H
+# define OPERATION00_H
 
 #include "operation_util.h"
 

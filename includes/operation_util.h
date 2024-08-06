@@ -15,10 +15,10 @@
 
 #include "stack.h"
 
-int	swap(t_stack *stk);
-void	add_bottom (t_stack *stk, int value);
+int			swap(t_stack *stk);
+void		add_bottom (t_stack *stk, int value);
 t_value		pop_bottom (t_stack *stk);
-int	shift_up(t_stack *stk);
-int	shift_down(t_stack *stk);
+int			shift_up(t_stack *stk);
+int			shift_down(t_stack *stk);
 
 #endif
