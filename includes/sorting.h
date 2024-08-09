@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sorting.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nfigueir <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 16:24:32 by nfigueir          #+#    #+#             */
-/*   Updated: 2024/08/06 16:31:25 by nfigueir         ###   ########.fr       */
+/*   Updated: 2024/08/09 13:06:31 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,6 @@
 #include "../includes/operation02.h"
 
 void	sorting(t_stack *a, t_stack *b);
+int is_sorted(t_stack *a);
 
 #endif

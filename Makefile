@@ -3,7 +3,7 @@ UTILS = operation_util.c
 DIR_OBJ = ./obj/
 DIR_UTIL = ./utils/
 APP = ./app/push_swap.c
-NAME = push_swap
+NAME = push_swap 
 FLAGS = -Wall -Wextra -Werror
 SRC_OBJ = $(addprefix $(DIR_OBJ), $(SRCS:.c=.o))
 UTIL_OBJ = $(addprefix $(DIR_OBJ), $(UTILS:.c=.o))

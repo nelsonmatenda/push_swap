@@ -50,7 +50,8 @@ int main(int ac, char **av)
 								// Estou usando este codigo para preencher apenas a stack A para
 	while (--i > 0)				// poder continuar a trabalhar no sort, depois devo eliminar
 		push(a, atoi(av[i]));	// estas linhas
-	sorting(a, b);
+	if (is_sorted(a))
+		sorting(a, b);
 
 
 	return (0);
