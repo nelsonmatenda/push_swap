@@ -23,10 +23,35 @@ void	print_stack(t_stack *stk)
 	p = stk->top;
 	while (p != NULL)
 	{
-		printf("%d ", p->value);
+		printf("%d[%i] ", p->value->v, p->value->index);
 		p = p->next;
 	}
 	puts("");
+}
+
+void	free_stack(t_stack *a, t_stack *b)
+{
+	t_node *p;
+	t_node *aux;
+
+	p = a->top;
+	while(p)
+	{
+		aux = p;
+		p = p->next;
+		free(aux->value);
+		free(aux);
+	}
+	free(a);
+	p = b->top;
+	while(p)
+	{
+		aux = p;
+		p = p->next;
+		free(aux->value);
+		free(aux);
+	}
+	free(b);
 }
 
 int main(int ac, char **av)
@@ -50,9 +75,10 @@ int main(int ac, char **av)
 								// Estou usando este codigo para preencher apenas a stack A para
 	while (--i > 0)				// poder continuar a trabalhar no sort, depois devo eliminar
 		push(a, atoi(av[i]));	// estas linhas
-	if (is_sorted(a))
+	//print_stack(a);
+	if (!is_sorted(a))
 		sorting(a, b);
-
+	free_stack(a, b);
 
 	return (0);
 }

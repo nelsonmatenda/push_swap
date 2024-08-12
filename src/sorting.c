@@ -3,89 +3,37 @@
 /*                                                        :::      ::::::::   */
 /*   sorting.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: nfigueir <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 15:59:21 by nfigueir          #+#    #+#             */
-/*   Updated: 2024/08/09 13:13:34 by codespace        ###   ########.fr       */
+/*   Updated: 2024/08/12 09:09:59 by nfigueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/sorting.h"
-
-
-int	find_max(t_stack *stk)
-{
-	int	max;
-	t_node	*p;
-
-	p = stk->top;
-	max = p->value;
-	while (p != NULL)
-	{
-		if (max < p->value)
-			max = p->value;
-		p = p->next;
-	}
-	return (max);
-}
-
-int	find_min(t_stack *stk)
-{
-	int	min;
-	t_node	*p;
-
-	p = stk->top;
-	min = p->value;
-	while (p != NULL)
-	{
-		if (min > p->value)
-			min = p->value;
-		p = p->next;
-	}
-	return (min);
-}
-
-int is_sorted(t_stack *a)
-{
-	t_node	*p;
-
-	if (!a)
-		return (0);
-
-	p = a->top;
-	while(p)
-	{
-		if (p->next)
-		{
-			if (p->value > p->next->value)
-				return (0);
-		}
-		p = p->next;
-	}
-	return (1);
-}
 
 void	sort_three(t_stack *stk)
 {
 	int	max;
 
 	max = find_max(stk);
-	if (max == stk->top->value)
+	if (max == stk->top->value->v)
 		ra(stk);
-	else if (max != stk->bottom->value)
+	else if (max != stk->bottom->value->v)
 		rra(stk);
-	if (stk->top->value > stk->top->next->value)
+	if (stk->top->value->v > stk->top->next->value->v)
 		sa(stk);
 }
 
-void	sort_small_case(t_stack *a, t_stack *b)
+static void	sort_small_case(t_stack *a, t_stack *b)
 {
 	int	min;
 
 	while (a->size > 3)
 	{
 		min = find_min(a);
-		while (min != a->top->value)
+
+		while (min != a->top->value->v)
 		{
 			rra(a);
 		}
@@ -103,7 +51,7 @@ void	sorting(t_stack *a, t_stack *b)
 		return;
 	if (a->size == 2)
 	{
-		if (a->top->value > a->bottom->value)
+		if (a->top->value->v > a->bottom->value->v)
 			sa(a);
 		else
 			return;

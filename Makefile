@@ -1,9 +1,9 @@
 SRCS = stack.c operation00.c operation01.c operation02.c sorting.c
-UTILS = operation_util.c
+UTILS = operation_util.c sort_util.c
 DIR_OBJ = ./obj/
 DIR_UTIL = ./utils/
 APP = ./app/push_swap.c
-NAME = push_swap 
+NAME = push_swap
 FLAGS = -Wall -Wextra -Werror
 SRC_OBJ = $(addprefix $(DIR_OBJ), $(SRCS:.c=.o))
 UTIL_OBJ = $(addprefix $(DIR_OBJ), $(UTILS:.c=.o))
@@ -17,7 +17,7 @@ $(DIR_OBJ)%.o: ./src/%.c ./includes/%.h
 	cc $(FLAGS)  -c $< -o $@
 
 $(DIR_OBJ)%.o: ./utils/%.c ./includes/%.h
-	cc $(FLAGS) -g -c $< -o $@
+	cc $(FLAGS) -c $< -o $@
 
 $(DIR_OBJ):
 	mkdir -p $(DIR_OBJ)

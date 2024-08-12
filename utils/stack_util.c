@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sorting.h                                          :+:      :+:    :+:   */
+/*   stack_util.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfigueir <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/06 16:24:32 by nfigueir          #+#    #+#             */
-/*   Updated: 2024/08/12 07:59:03 by nfigueir         ###   ########.fr       */
+/*   Created: 2024/08/12 08:05:44 by nfigueir          #+#    #+#             */
+/*   Updated: 2024/08/12 08:16:11 by nfigueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SORTING_H
-# define SORTING_H
+#include "../includes/stack_util.h"
 
-#include "../includes/stack.h"
-#include "../includes/operation00.h"
-#include "../includes/operation01.h"
-#include "../includes/operation02.h"
-#include "../includes/sort_util.h"
+int	set_index(t_stack *stk, int element)
+{
+	int		i;
+	t_node	*p;
 
-void	sort_three(t_stack *stk);
-void	sorting(t_stack *a, t_stack *b);
-
-#endif
+	i = 0;
+	if (!stk)
+		return (-1);
+	p = stk->top;
+	while (p)
+	{
+		if (p->value == element)
+			return (i);
+		i++;
+		p = p->next;
+	}
+	return (-1);
+}

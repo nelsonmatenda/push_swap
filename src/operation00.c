@@ -38,7 +38,7 @@ void	pa(t_stack *a_stk, t_stack *b_stk)
 	popped = pop(b_stk);
 	if (popped.error == EMPTY_STACK)
 		return;
-	push(a_stk, popped.value);
+	push(a_stk, popped.v);
 	write(1, "pa\n", sizeof("pa\n"));
 }
 
@@ -49,6 +49,6 @@ void	pb(t_stack *a_stk, t_stack *b_stk)
 	popped = pop(a_stk);
 	if (popped.error == EMPTY_STACK)
 		return;
-	push(b_stk, popped.value);
+	push(b_stk, popped.v);
 	write(1, "pb\n", sizeof("pb\n"));
 }

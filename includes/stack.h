@@ -16,10 +16,18 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <stdio.h> // TODO: dev
+#include "../includes/stack_util.h"
+
+typedef struct s_value
+{
+	int	v;
+	int	error;
+	int	index;
+}		t_value;
 
 typedef struct s_node
 {
-	int				value;
+	t_value			*value;
 	struct s_node	*next;
 	struct s_node	*prev;
 }					t_node;
@@ -30,12 +38,6 @@ typedef struct s_stack
 	t_node	*bottom;
 	size_t	size;
 }			t_stack;
-
-typedef struct s_value
-{
-	int	value;
-	int	error;
-} 		t_value;
 
 enum e_error
 {
