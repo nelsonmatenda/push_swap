@@ -34,6 +34,7 @@ typedef struct s_value
 	t_node	*target;
 	int		above;
 	int		most_cheap;
+	int		cost;
 }		t_value;
 
 typedef struct s_stack

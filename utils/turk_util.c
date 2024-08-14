@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 11:35:41 by codespace         #+#    #+#             */
-/*   Updated: 2024/08/14 15:39:40 by codespace        ###   ########.fr       */
+/*   Updated: 2024/08/14 15:51:21 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,13 @@ void	cost(t_stack *a, t_stack *b)
 	p = b->top;
 	while (p)
 	{
-		if (!p->value)
+		p->value->cost = p->value->index;
+		if (!p->value->above)
+			p->value->cost = b->size - p->value->index;
+		if (p->value->target->value->above)
+			p->value->cost += p->value->target->value->index;
+		else
+			p->value->cost += a->size - p->value->target->value->index;
 		p = p->next;
 	}
 }

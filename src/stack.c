@@ -24,6 +24,7 @@ static t_value *create_value(int value)
 	val->index = -1;
 	val->target = NULL;
 	val->above = 0;
+	val->cost = -1;
 	val->most_cheap = 0;
 	return (val);
 }
