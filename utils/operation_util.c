@@ -24,10 +24,12 @@ int	swap(t_stack *stk)
 		stk->top = aux->next;
 		aux->next = stk->top->next;
 		stk->top->next = aux;
-		return SUCCESS;
 	}
 	else
 		return ONE_NODE;
+	// stk->top->value->index = stk->size - 1;		TODO: DELETE
+	// stk->top->next->value->index = stk->size - 2;TODO: DELETE
+	return SUCCESS;
 }
 
 void	add_bottom (t_stack *stk, int value)

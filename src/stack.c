@@ -70,6 +70,8 @@ void	push(t_stack *stk, int value)
 		stk->top->prev = new;
 	stk->top = new;
 	stk->size++;
+	// index do node
+	//stk->top->value->index = stk->size - 1; TODO: DELETE
 }
 
 t_value	pop(t_stack *stk)

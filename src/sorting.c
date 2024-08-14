@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sorting.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nfigueir <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 15:59:21 by nfigueir          #+#    #+#             */
-/*   Updated: 2024/08/12 09:09:59 by nfigueir         ###   ########.fr       */
+/*   Updated: 2024/08/14 09:34:55 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,14 @@
 
 void	sort_three(t_stack *stk)
 {
-	int	max;
+	t_value	*max;
 
+	if (!stk)
+		return;
 	max = find_max(stk);
-	if (max == stk->top->value->v)
+	if (max->v == stk->top->value->v)
 		ra(stk);
-	else if (max != stk->bottom->value->v)
+	else if (max->v != stk->bottom->value->v)
 		rra(stk);
 	if (stk->top->value->v > stk->top->next->value->v)
 		sa(stk);
@@ -27,15 +29,21 @@ void	sort_three(t_stack *stk)
 
 static void	sort_small_case(t_stack *a, t_stack *b)
 {
-	int	min;
+	t_value	*min;
+	int	reverse;
 
+	reverse = 0;
 	while (a->size > 3)
 	{
 		min = find_min(a);
-
-		while (min != a->top->value->v)
+		if (min->index < a->size / 2)
+			reverse = 1;
+		while (min->v != a->top->value->v)
 		{
-			rra(a);
+			if (reverse != 1)
+				rra(a);
+			else
+				ra(a);
 		}
 		pb(a, b);
 	}

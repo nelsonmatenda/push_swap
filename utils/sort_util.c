@@ -3,42 +3,56 @@
 /*                                                        :::      ::::::::   */
 /*   sort_util.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nfigueir <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 07:52:05 by nfigueir          #+#    #+#             */
-/*   Updated: 2024/08/12 09:10:50 by nfigueir         ###   ########.fr       */
+/*   Updated: 2024/08/14 09:32:10 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/sort_util.h"
 
-int	find_max(t_stack *stk)
+t_value	*find_max(t_stack *stk)
 {
-	int	max;
+	t_value	*max;
+	int		i;
 	t_node	*p;
 
+	if (!stk)
+		return (NULL);
+	i = 0;
 	p = stk->top;
-	max = p->value->v;
-	while (p != NULL)
+	max = p->value;
+	while (p && i < stk->size)
 	{
-		if (max < p->value->v)
-			max = p->value->v;
+		if (max->v < p->value->v)
+		{
+			max = p->value;
+			max->index = i;
+		}
 		p = p->next;
+		i++;
 	}
 	return (max);
 }
 
-int	find_min(t_stack *stk)
+t_value	*find_min(t_stack *stk)
 {
-	int	min;
+	t_value	*min;
+	int		i;
 	t_node	*p;
 
 	p = stk->top;
-	min = p->value->v;
-	while (p != NULL)
+	min = p->value;
+	i = 0;
+	while (p && i < stk->size)
 	{
-		if (min > p->value->v)
-			min = p->value->v;
+		if (min->v > p->value->v)
+		{
+			min = p->value;
+			min->index = i;
+		}
+		i++;
 		p = p->next;
 	}
 	return (min);

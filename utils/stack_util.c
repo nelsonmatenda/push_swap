@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_util.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nfigueir <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 08:05:44 by nfigueir          #+#    #+#             */
-/*   Updated: 2024/08/12 08:16:11 by nfigueir         ###   ########.fr       */
+/*   Updated: 2024/08/14 08:25:42 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,3 +30,4 @@ int	set_index(t_stack *stk, int element)
 	}
 	return (-1);
 }
+

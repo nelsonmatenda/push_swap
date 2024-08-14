@@ -36,7 +36,7 @@ typedef struct s_stack
 {
 	t_node	*top;
 	t_node	*bottom;
-	size_t	size;
+	int	size;
 }			t_stack;
 
 enum e_error
