@@ -22,6 +22,9 @@ static t_value *create_value(int value)
 	val->error = 0;
 	val->v = value;
 	val->index = -1;
+	val->target = NULL;
+	val->above = 0;
+	val->most_cheap = 0;
 	return (val);
 }
 

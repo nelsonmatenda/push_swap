@@ -13,17 +13,11 @@
 #ifndef STACK_H
 # define STACK_H
 
+#include <limits.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <stdio.h> // TODO: dev
 #include "../includes/stack_util.h"
-
-typedef struct s_value
-{
-	int	v;
-	int	error;
-	int	index;
-}		t_value;
 
 typedef struct s_node
 {
@@ -31,6 +25,16 @@ typedef struct s_node
 	struct s_node	*next;
 	struct s_node	*prev;
 }					t_node;
+
+typedef struct s_value
+{
+	int		v;
+	int		error;
+	int		index;
+	t_node	*target;
+	int		above;
+	int		most_cheap;
+}		t_value;
 
 typedef struct s_stack
 {

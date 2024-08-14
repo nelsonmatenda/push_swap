@@ -1,35 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_util.c                                       :+:      :+:    :+:   */
+/*   turk.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/12 08:05:44 by nfigueir          #+#    #+#             */
-/*   Updated: 2024/08/14 15:13:38 by codespace        ###   ########.fr       */
+/*   Created: 2024/08/14 11:34:16 by codespace         #+#    #+#             */
+/*   Updated: 2024/08/14 12:14:12 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/stack_util.h"
+#include "../includes/stack.h"
+#include "../includes/operation00.h"
+#include "../includes/operation00.h"
+#include "../includes/operation02.h"
+#include "../includes/sorting.h"
 
-int	set_index(t_stack *stk, int element)
+void	sort_turk(t_stack *a, t_stack *b)
 {
-	int		i;
-	t_node	*p;
-
-	i = 0;
-	if (!stk)
-		return (-1);
-	p = stk->top;
-	while (p)
+	while (a->size > 3)
+		pb(a, b);
+	sort_three(a);
+	if (b->size > 0)
 	{
-		if (p->value == element)
-			return (i);
-		i++;
-		p = p->next;
+		
 	}
-	return (-1);
 }
-
-
-
