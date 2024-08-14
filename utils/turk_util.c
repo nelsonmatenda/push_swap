@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 11:35:41 by codespace         #+#    #+#             */
-/*   Updated: 2024/08/14 15:51:21 by codespace        ###   ########.fr       */
+/*   Updated: 2024/08/14 16:46:04 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ void	set_index(t_stack *stk)
 	t_node	*p;
 
 	i = -1;
+	if (!stk)
+		return;
 	p = stk->top;
 	while (++i < stk->size)
 	{
@@ -59,6 +61,8 @@ void	cost(t_stack *a, t_stack *b)
 {
 	t_node	*p;
 
+	if (!a || !b)
+		return;
 	p = b->top;
 	while (p)
 	{
@@ -75,7 +79,24 @@ void	cost(t_stack *a, t_stack *b)
 
 void	most_cheap(t_stack *stk)
 {
+	long	min_cost;
+	t_node	*most_cheap;
+	t_node	*p;
 
+	if (!stk)
+		return;
+	p = stk->top;
+	min_cost = LONG_MAX;
+	while (p)
+	{
+		if (min_cost > p->value->cost)
+		{
+				min_cost = p->value->cost;
+				most_cheap = p;
+		}
+		p = p->next;
+	}
+	most_cheap->value->most_cheap = 1;
 }
 
 void	init_sort_turk(t_stack *a, t_stack *b)
