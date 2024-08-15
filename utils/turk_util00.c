@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   turk_util.c                                        :+:      :+:    :+:   */
+/*   turk_util00.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfigueir <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 07:42:47 by nfigueir          #+#    #+#             */
-/*   Updated: 2024/08/15 07:42:56 by nfigueir         ###   ########.fr       */
+/*   Updated: 2024/08/15 11:57:26 by nfigueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/stack.h"
+#include "../includes/turk_util00.h"
+#include "../includes/turk_util01.h"
 
-t_node	set_target_in_b(t_stack *a, t_stack *b)
+static void	set_target_in_b(t_stack *a, t_stack *b)
 {
 	t_node	*a_stk;
 	t_node	*b_stk;
@@ -25,7 +26,7 @@ t_node	set_target_in_b(t_stack *a, t_stack *b)
 	{
 		while (a_stk)
 		{
-			if ((b_stk->value->v < a_stk->value)
+			if ((b_stk->value->v < a_stk->value->v)
 				&& (a_stk->value->v < target_value))
 			{
 				b_stk->value->target = a_stk;
@@ -34,7 +35,7 @@ t_node	set_target_in_b(t_stack *a, t_stack *b)
 			a_stk = a_stk->next;
 		}
 		if (target_value == LONG_MAX)
-			b_stk->value->target = small_target(a);
+			b_stk->value->target = find_min_node(a);
 		b_stk = b_stk->next;
 	}
 }
@@ -57,7 +58,7 @@ void	set_index(t_stack *stk)
 	}
 }
 
-void	cost(t_stack *a, t_stack *b)
+static void	cost(t_stack *a, t_stack *b)
 {
 	t_node	*p;
 
@@ -77,7 +78,7 @@ void	cost(t_stack *a, t_stack *b)
 	}
 }
 
-void	most_cheap(t_stack *stk)
+static void	most_cheap(t_stack *stk)
 {
 	long	min_cost;
 	t_node	*most_cheap;
@@ -103,6 +104,7 @@ void	init_sort_turk(t_stack *a, t_stack *b)
 {
 	set_index(a);
 	set_index(b);
+	printf("AQUI");
 	set_target_in_b(a, b);
 	cost(a, b);
 	most_cheap(b);

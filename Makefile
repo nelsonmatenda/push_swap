@@ -1,5 +1,6 @@
-SRCS = stack.c operation00.c operation01.c operation02.c sorting.c
-UTILS = operation_util.c sort_util.c
+SRCS = stack.c operation00.c operation01.c operation02.c sorting.c \
+		turk.c
+UTILS = operation_util.c sort_util.c turk_util00.c turk_util01.c 
 DIR_OBJ = ./obj/
 DIR_UTIL = ./utils/
 APP = ./app/push_swap.c

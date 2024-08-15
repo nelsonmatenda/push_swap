@@ -17,7 +17,8 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <stdio.h> // TODO: dev
-#include "../includes/stack_util.h"
+
+typedef struct s_value t_value;
 
 typedef struct s_node
 {
