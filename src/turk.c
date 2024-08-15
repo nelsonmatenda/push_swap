@@ -6,11 +6,12 @@
 /*   By: nfigueir <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 07:43:13 by nfigueir          #+#    #+#             */
-/*   Updated: 2024/08/15 11:56:57 by nfigueir         ###   ########.fr       */
+/*   Updated: 2024/08/15 12:23:48 by nfigueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/turk.h"
+#include <stdio.h>
 
 static void	target_to_top(t_stack *stk, t_node *target, char stack)
 {
@@ -62,7 +63,10 @@ void	turk_sort(t_stack *a, t_stack *b)
 	if (!a || !b)
 		return;
 	while (a->size > 3)
+	{
+		printf("%d-", a->size);
 		pb(a, b);
+	}
 	sort_three(a);
 	if (b->size || b)
 	{

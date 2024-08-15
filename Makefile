@@ -1,6 +1,6 @@
 SRCS = stack.c operation00.c operation01.c operation02.c sorting.c \
 		turk.c
-UTILS = operation_util.c sort_util.c turk_util00.c turk_util01.c 
+UTILS = operation_util.c sort_util.c turk_util00.c turk_util01.c
 DIR_OBJ = ./obj/
 DIR_UTIL = ./utils/
 APP = ./app/push_swap.c
@@ -15,10 +15,10 @@ $(NAME): $(APP) $(DIR_OBJ) $(SRC_OBJ) $(UTIL_OBJ)
 	cc $(FLAGS) $(APP) $(SRC_OBJ) $(UTIL_OBJ) -o $(NAME)
 
 $(DIR_OBJ)%.o: ./src/%.c ./includes/%.h
-	cc $(FLAGS)  -c $< -o $@
+	cc $(FLAGS) -c $< -o $@
 
 $(DIR_OBJ)%.o: ./utils/%.c ./includes/%.h
-	cc $(FLAGS) -c $< -o $@
+	cc $(FLAGS) -g -c $< -o $@
 
 $(DIR_OBJ):
 	mkdir -p $(DIR_OBJ)
