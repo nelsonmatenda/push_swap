@@ -6,7 +6,7 @@
 /*   By: nfigueir <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 07:42:47 by nfigueir          #+#    #+#             */
-/*   Updated: 2024/08/16 13:24:11 by nfigueir         ###   ########.fr       */
+/*   Updated: 2024/08/16 14:50:38 by nfigueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ static void	set_target_in_b(t_stack *a, t_stack *b)
 {
 	t_node	*a_stk;
 	t_node	*b_stk;
+	t_node	*target_node;
 	long	target_value;
 
 	a_stk = a->top;
@@ -29,13 +30,15 @@ static void	set_target_in_b(t_stack *a, t_stack *b)
 			if ((b_stk->value->v < a_stk->value->v)
 				&& (a_stk->value->v < target_value))
 			{
-				b_stk->value->target = a_stk;
+				target_node = a_stk;
 				target_value = a_stk->value->v;
 			}
 			a_stk = a_stk->next;
 		}
 		if (target_value == LONG_MAX)
 			b_stk->value->target = find_min_node(a);
+		else
+			b_stk->value->target = target_node;
 		b_stk = b_stk->next;
 	}
 }

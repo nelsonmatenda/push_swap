@@ -6,7 +6,7 @@
 /*   By: nfigueir <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 10:47:00 by nfigueir          #+#    #+#             */
-/*   Updated: 2024/08/16 10:31:26 by nfigueir         ###   ########.fr       */
+/*   Updated: 2024/08/16 14:48:34 by nfigueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ t_node	*find_min_node(t_stack *stk)
 	t_node	*min_node;
 	long	min;
 
+	if (!stk || !stk->top)
+		return (NULL);
 	p = stk->top;
 	min = LONG_MAX;
 	while (p)

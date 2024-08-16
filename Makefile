@@ -15,10 +15,10 @@ $(NAME): $(APP) $(DIR_OBJ) $(SRC_OBJ) $(UTIL_OBJ)
 	cc $(FLAGS) $(APP) $(SRC_OBJ) $(UTIL_OBJ) -o $(NAME)
 
 $(DIR_OBJ)%.o: ./src/%.c ./includes/%.h
-	cc $(FLAGS) -g -c $< -o $@
+	cc $(FLAGS) -c $< -o $@
 
 $(DIR_OBJ)%.o: ./utils/%.c ./includes/%.h
-	cc $(FLAGS) -c $< -o $@
+	cc $(FLAGS) -g -c $< -o $@
 
 $(DIR_OBJ):
 	mkdir -p $(DIR_OBJ)
