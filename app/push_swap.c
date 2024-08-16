@@ -66,7 +66,7 @@ int main(int ac, char **av)
 	b = create_stack();
 	if (!a || !b)
 	{
-		write(1, "Error\n", sizeof("Error\n"));
+		write(2, "Error\n", sizeof("Error\n"));
 		exit (EXIT_FAILURE);
 	}
 
@@ -78,7 +78,7 @@ int main(int ac, char **av)
 	//print_stack(a);
 	if (!is_sorted(a))
 		sorting(a, b);
+	print_stack(a);
 	free_stack(a, b);
-
 	return (0);
 }

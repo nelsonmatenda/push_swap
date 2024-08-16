@@ -6,7 +6,7 @@
 /*   By: nfigueir <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 07:42:47 by nfigueir          #+#    #+#             */
-/*   Updated: 2024/08/16 11:06:17 by nfigueir         ###   ########.fr       */
+/*   Updated: 2024/08/16 13:24:11 by nfigueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	set_index(t_stack *stk)
 	while (++i < stk->size)
 	{
 		p->value->index = i;
-		if (i < stk->size / 2)
+		if (i <= stk->size / 2)
 			p->value->above = 1;
 		p = p->next;
 	}

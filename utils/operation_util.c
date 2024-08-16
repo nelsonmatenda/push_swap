@@ -48,19 +48,19 @@ void	add_bottom (t_stack *stk, int value)
 	stk->size++;
 }
 
-t_value	pop_bottom (t_stack *stk)
+t_popped	pop_bottom (t_stack *stk)
 {
 	t_node	*node;
-	t_value	popped;
+	t_popped	popped;
 
 	if (!stk || stk->size == 0)
 	{
 		popped.error = EMPTY_STACK;
-		popped.v = -42;
+		popped.value = -42;
 		return (popped);
 	}
 	popped.error = SUCCESS;
-	popped.v = stk->bottom->value->v;
+	popped.value = stk->bottom->value->v;
 	node = stk->bottom;
 	stk->bottom = stk->bottom->prev;
 	if (stk->top == node)
@@ -75,7 +75,7 @@ t_value	pop_bottom (t_stack *stk)
 
 int	shift_up(t_stack *stk)
 {
-	t_value	popped;
+	t_popped	popped;
 
 	if (!stk)
 		return (NULL_POINTER);
@@ -84,7 +84,7 @@ int	shift_up(t_stack *stk)
 		popped = pop(stk);
 		if (popped.error == EMPTY_STACK)
 			return (EMPTY_STACK);
-		add_bottom(stk, popped.v);
+		add_bottom(stk, popped.value);
 		return (SUCCESS);
 	}
 	else
@@ -93,7 +93,7 @@ int	shift_up(t_stack *stk)
 
 int	shift_down(t_stack *stk)
 {
-	t_value	popped;
+	t_popped	popped;
 
 	if (!stk)
 		return (NULL_POINTER);
@@ -102,7 +102,7 @@ int	shift_down(t_stack *stk)
 		popped = pop_bottom(stk);
 		if (popped.error == EMPTY_STACK)
 			return (EMPTY_STACK);
-		push(stk, popped.v);
+		push(stk, popped.value);
 		return (SUCCESS);
 	}
 	else

@@ -6,7 +6,7 @@
 /*   By: nfigueir <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 07:43:13 by nfigueir          #+#    #+#             */
-/*   Updated: 2024/08/16 11:44:30 by nfigueir         ###   ########.fr       */
+/*   Updated: 2024/08/16 13:26:02 by nfigueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,14 @@ static void	target_to_top(t_stack *stk, t_node *target, char stack)
 	{
 		if (stack == 'a')
 		{
-			if (stk->top->value->above)
+			if (target->value->above)
 				ra(stk);
 			else
 				rra(stk);
 		}
 		else if (stack == 'b')
 		{
-			if (stk->top->value->above)
+			if (target->value->above)
 				rb(stk);
 			else
 				rrb(stk);
@@ -63,7 +63,7 @@ void	turk_sort(t_stack *a, t_stack *b)
 
 	if (!a || !b)
 		return;
-	while (a->size > 3)
+	while (a->size > 3 && !is_sorted(a))
 		pb(a, b);
 	if (!is_sorted(a))
 		sort_three(a);
