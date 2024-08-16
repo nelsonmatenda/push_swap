@@ -6,7 +6,7 @@
 /*   By: nfigueir <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 10:47:00 by nfigueir          #+#    #+#             */
-/*   Updated: 2024/08/15 11:52:09 by nfigueir         ###   ########.fr       */
+/*   Updated: 2024/08/16 10:31:26 by nfigueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ t_node	*get_most_cheap(t_stack *stk)
 {
 	t_node	*p;
 
+	if (!stk)
+		return (NULL);
 	p = stk->top;
 	while (p)
 	{

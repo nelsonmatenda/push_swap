@@ -6,7 +6,7 @@
 /*   By: nfigueir <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 07:43:13 by nfigueir          #+#    #+#             */
-/*   Updated: 2024/08/15 12:23:48 by nfigueir         ###   ########.fr       */
+/*   Updated: 2024/08/16 11:44:30 by nfigueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,8 @@ static void	sort(t_stack *a, t_stack *b)
 		while ((a->top != cheap_node->value->target) && (b->top != cheap_node))
 			rr(a, b);
 	}
-	else if (!cheap_node->value->above && !cheap_node->value->target->value->above)
+	else if (!cheap_node->value->above
+			&& !cheap_node->value->target->value->above)
 	{
 		while ((a->top != cheap_node->value->target) && (b->top != cheap_node))
 			rrr(a, b);
@@ -63,18 +64,16 @@ void	turk_sort(t_stack *a, t_stack *b)
 	if (!a || !b)
 		return;
 	while (a->size > 3)
-	{
-		printf("%d-", a->size);
 		pb(a, b);
-	}
-	sort_three(a);
-	if (b->size || b)
+	if (!is_sorted(a))
+		sort_three(a);
+	while (b->size || b->top)
 	{
 		init_sort_turk(a, b);
 		sort(a, b);
 	}
 	set_index(a);
-	min_node_a = get_most_cheap(a);
+	min_node_a = find_min_node(a);
 	if (min_node_a->value->above)
 		while (a->top != min_node_a)
 			ra(a);
