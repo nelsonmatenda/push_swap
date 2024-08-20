@@ -6,7 +6,7 @@
 /*   By: nfigueir <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 07:42:47 by nfigueir          #+#    #+#             */
-/*   Updated: 2024/08/15 11:57:26 by nfigueir         ###   ########.fr       */
+/*   Updated: 2024/08/20 09:05:14 by nfigueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ static void	set_target_in_b(t_stack *a, t_stack *b)
 {
 	t_node	*a_stk;
 	t_node	*b_stk;
+	t_node	*target_node;
 	long	target_value;
 
 	a_stk = a->top;
@@ -29,13 +30,15 @@ static void	set_target_in_b(t_stack *a, t_stack *b)
 			if ((b_stk->value->v < a_stk->value->v)
 				&& (a_stk->value->v < target_value))
 			{
-				b_stk->value->target = a_stk;
+				target_node = a_stk;
 				target_value = a_stk->value->v;
 			}
 			a_stk = a_stk->next;
 		}
 		if (target_value == LONG_MAX)
 			b_stk->value->target = find_min_node(a);
+		else
+			b_stk->value->target = target_node;
 		b_stk = b_stk->next;
 	}
 }
@@ -52,7 +55,7 @@ void	set_index(t_stack *stk)
 	while (++i < stk->size)
 	{
 		p->value->index = i;
-		if (i < stk->size / 2)
+		if (i <= stk->size / 2)
 			p->value->above = 1;
 		p = p->next;
 	}
@@ -84,7 +87,7 @@ static void	most_cheap(t_stack *stk)
 	t_node	*most_cheap;
 	t_node	*p;
 
-	if (!stk)
+	if (!stk || !stk->bottom)
 		return;
 	p = stk->top;
 	min_cost = LONG_MAX;
@@ -104,7 +107,6 @@ void	init_sort_turk(t_stack *a, t_stack *b)
 {
 	set_index(a);
 	set_index(b);
-	printf("AQUI");
 	set_target_in_b(a, b);
 	cost(a, b);
 	most_cheap(b);

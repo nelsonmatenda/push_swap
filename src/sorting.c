@@ -6,7 +6,7 @@
 /*   By: nfigueir <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 07:44:07 by nfigueir          #+#    #+#             */
-/*   Updated: 2024/08/15 11:42:31 by nfigueir         ###   ########.fr       */
+/*   Updated: 2024/08/20 08:58:51 by nfigueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,6 @@ void	sorting(t_stack *a, t_stack *b)
 		sort_three(a);
 	else if (a->size <= 5)
 		sort_small_case(a, b);
-	else if (a->size > 5)
+	else //if (a->size > 5)
 		turk_sort(a, b);
 }

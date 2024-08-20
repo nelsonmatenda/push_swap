@@ -19,9 +19,9 @@ static t_value *create_value(int value)
 	val = (t_value *)malloc(sizeof(t_value));
 	if (!val)
 		return (NULL);
-	val->error = 0;
+	//val->error = 0;
 	val->v = value;
-	val->index = -1;
+	val->index = 0;
 	val->target = NULL;
 	val->above = 0;
 	val->cost = -1;
@@ -78,19 +78,19 @@ void	push(t_stack *stk, int value)
 	//stk->top->value->index = stk->size - 1; TODO: DELETE
 }
 
-t_value	pop(t_stack *stk)
+t_popped	pop(t_stack *stk)
 {
 	t_node	*node;
-	t_value	popped;
+	t_popped	popped;
 
 	if (!stk || stk->size == 0)
 	{
 		popped.error = EMPTY_STACK;
-		popped.v = -42;
+		popped.value = -42;
 		return (popped);
 	}
 	popped.error = SUCCESS;
-	popped.v = stk->top->value->v;
+	popped.value = stk->top->value->v;
 	node = stk->top;
 	stk->top = stk->top->next;
 	if (stk->bottom == node)

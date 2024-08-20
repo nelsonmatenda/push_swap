@@ -20,6 +20,12 @@
 
 typedef struct s_value t_value;
 
+typedef struct s_popped
+{
+	int		value;
+	int		error;
+}			t_popped;
+
 typedef struct s_node
 {
 	t_value			*value;
@@ -30,7 +36,6 @@ typedef struct s_node
 typedef struct s_value
 {
 	int		v;
-	int		error;
 	int		index;
 	t_node	*target;
 	int		above;
@@ -53,9 +58,9 @@ enum e_error
 	SUCCESS = 1
 };
 
-t_node	*create_node(int value);
-t_stack	*create_stack(void);
-void	push(t_stack *stk, int value);
-t_value	pop(t_stack *stk);
+t_node		*create_node(int value);
+t_stack		*create_stack(void);
+void		push(t_stack *stk, int value);
+t_popped	pop(t_stack *stk);
 
 #endif
