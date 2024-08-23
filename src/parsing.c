@@ -6,7 +6,7 @@
 /*   By: nfigueir <nfigueir@student.42luanda.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 10:41:47 by nfigueir          #+#    #+#             */
-/*   Updated: 2024/08/23 14:04:10 by nfigueir         ###   ########.fr       */
+/*   Updated: 2024/08/23 14:59:55 by nfigueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ static void	*get_value(t_stack *a, char **args)
 		if (!new)
 			return (ft_free_args(args), \
 			ft_exit(a, NULL, NULL_POINTER, NULL));
-		//push(a, new);
+		push(a, new);
 		new = NULL;
 		i++;
 	}

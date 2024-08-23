@@ -27,8 +27,6 @@ int	swap(t_stack *stk)
 	}
 	else
 		return ONE_NODE;
-	// stk->top->value->index = stk->size - 1;		TODO: DELETE
-	// stk->top->next->value->index = stk->size - 2;TODO: DELETE
 	return SUCCESS;
 }
 
@@ -63,16 +61,16 @@ t_node	*pop_bottom (t_stack *stk)
 
 int	shift_up(t_stack *stk)
 {
-	t_popped	popped;
+	t_node	*popped;
 
 	if (!stk)
 		return (NULL_POINTER);
 	if (stk->size > 1)
 	{
 		popped = pop(stk);
-		if (popped.error == EMPTY_STACK)
+		if (popped == NULL)
 			return (EMPTY_STACK);
-		add_bottom(stk, popped.value);
+		add_bottom(stk, popped);
 		return (SUCCESS);
 	}
 	else
@@ -81,16 +79,16 @@ int	shift_up(t_stack *stk)
 
 int	shift_down(t_stack *stk)
 {
-	t_popped	popped;
+	t_node	*popped;
 
 	if (!stk)
 		return (NULL_POINTER);
 	if (stk->size > 1)
 	{
 		popped = pop_bottom(stk);
-		if (popped.error == EMPTY_STACK)
+		if (popped == NULL)
 			return (EMPTY_STACK);
-		push(stk, popped.value);
+		push(stk, popped);
 		return (SUCCESS);
 	}
 	else
