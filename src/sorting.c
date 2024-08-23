@@ -6,7 +6,7 @@
 /*   By: nfigueir <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 07:44:07 by nfigueir          #+#    #+#             */
-/*   Updated: 2024/08/21 11:44:29 by nfigueir         ###   ########.fr       */
+/*   Updated: 2024/08/21 11:49:05 by nfigueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,10 +55,8 @@ static void	sort_small_case(t_stack *a, t_stack *b)
 	while (a->size > 3)
 	{
 		min = find_min(a);
-		//printf("%d", min.error);
 		if (min.error == -1)
 			return;
-		//printf("AQUI");
 		if (min.index < a->size / 2)
 			reverse = 1;
 		else
@@ -88,6 +86,6 @@ void	sorting(t_stack *a, t_stack *b)
 		sort_three(a);
 	else if (a->size <= 5)
 		sort_small_case(a, b);
-	// else //if (a->size > 5)
-	// 	turk_sort(a, b);
+	else //if (a->size > 5)
+		turk_sort(a, b);
 }

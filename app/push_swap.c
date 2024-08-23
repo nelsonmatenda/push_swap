@@ -15,6 +15,8 @@
 #include "../includes/operation01.h"
 #include "../includes/operation02.h"
 #include "../includes/sorting.h"
+#include "../includes/exit.h"
+#include "../includes/parsing_util.h" // TODO: Arrumar melhor os headers
 
 void	print_stack(t_stack *stk)
 {
@@ -23,62 +25,31 @@ void	print_stack(t_stack *stk)
 	p = stk->top;
 	while (p != NULL)
 	{
-		printf("%d[%i] ", p->value->v, p->value->index);
+		printf("%d[%i] ", p->value, p->index);
 		p = p->next;
 	}
 	puts("");
 }
 
-void	free_stack(t_stack *a, t_stack *b)
-{
-	t_node *p;
-	t_node *aux;
-
-	p = a->top;
-	while(p)
-	{
-		aux = p;
-		p = p->next;
-		free(aux->value);
-		free(aux);
-	}
-	free(a);
-	p = b->top;
-	while(p)
-	{
-		aux = p;
-		p = p->next;
-		free(aux->value);
-		free(aux);
-	}
-	free(b);
-}
 
 int main(int ac, char **av)
 {
 	t_stack	*a;
 	t_stack	*b;
-	int		i;
+	//int		i;
 
 	if (ac < 2)
-		return (0);//TODO: implemntar erro de input (sem argumento)
+		return (*(int *)ft_exit(NULL, NULL, EXIT_SUCCESS, NULL));
 	a = create_stack();
-	b = create_stack();
-	if (!a || !b)
-	{
-		write(2, "Error\n", sizeof("Error\n"));
-		exit (EXIT_FAILURE);
-	}
-
-	// TODO: implementar o parsing dos inputs
-	i = ac;						// TODO: DEV
-								// Estou usando este codigo para preencher apenas a stack A para
-	while (--i > 0)				// poder continuar a trabalhar no sort, depois devo eliminar
-		push(a, atoi(av[i]));	// estas linhas
+	if (!a)
+		return (*(int *)ft_exit(a, NULL, NULL_POINTER, NULL));
+	parsing(a, ac,av);
 	//print_stack(a);
-	if (!is_sorted(a))
-		sorting(a, b);
-	print_stack(a);
-	free_stack(a, b);
-	return (0);
+	if (is_sorted(a))
+		return (*(int *)ft_exit(a, NULL, EXIT_SUCCESS, NULL));
+	b = create_stack();
+	if (!a)
+		return (*(int *)ft_exit(a, b, NULL_POINTER, NULL));
+	sorting(a, b);
+	return (*(int *)ft_exit(a, b, EXIT_SUCCESS, NULL));
 }

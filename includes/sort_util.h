@@ -16,9 +16,9 @@
 #include "../includes/stack.h"
 #include "../includes/stack.h"
 
-t_value	*find_max(t_stack *stk);
-t_value	*find_min(t_stack *stk);
-int is_sorted(t_stack *a);
+t_popped	find_max(t_stack *stk);
+t_popped	find_min(t_stack *stk);
+int			is_sorted(t_stack *a);
 
 #endif
 

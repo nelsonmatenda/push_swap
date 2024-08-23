@@ -60,7 +60,7 @@ t_popped	pop_bottom (t_stack *stk)
 		return (popped);
 	}
 	popped.error = SUCCESS;
-	popped.value = stk->bottom->value->v;
+	popped.value = stk->bottom->value;
 	node = stk->bottom;
 	stk->bottom = stk->bottom->prev;
 	if (stk->top == node)
@@ -68,8 +68,8 @@ t_popped	pop_bottom (t_stack *stk)
 	else
 		stk->bottom->next = NULL;
 	stk->size--;
-	free(node->value);
 	free(node);
+	node = NULL;
 	return (popped);
 }
 

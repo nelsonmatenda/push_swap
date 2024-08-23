@@ -12,22 +12,22 @@
 
 #include "../includes/stack.h"
 
-static t_value *create_value(int value)
-{
-	t_value *val;
+// static t_value *create_value(int value)
+// {
+// 	t_value *val;
 
-	val = (t_value *)malloc(sizeof(t_value));
-	if (!val)
-		return (NULL);
-	//val->error = 0;
-	val->v = value;
-	val->index = 0;
-	val->target = NULL;
-	val->above = 0;
-	val->cost = -1;
-	val->most_cheap = 0;
-	return (val);
-}
+// 	val = (t_value *)malloc(sizeof(t_value));
+// 	if (!val)
+// 		return (NULL);
+// 	//val->error = 0;
+// 	val->v = value;
+// 	val->index = 0;
+// 	val->target = NULL;
+// 	val->above = 0;
+// 	val->cost = -1;
+// 	val->most_cheap = 0;
+// 	return (val);
+// }
 
 t_node	*create_node(int value)
 {
@@ -36,14 +36,14 @@ t_node	*create_node(int value)
 	node = (t_node *)malloc(sizeof(t_node));
 	if (!node)
 		return (NULL);
-	node->value = create_value(value);
-	if (!node->value)
-	{
-		free(node);
-		return (NULL);
-	}
 	node->next = NULL;
 	node->prev = NULL;
+	node->value = value;
+	node->target = NULL;
+	node->index = -1;
+	node->above = -1;
+	node->cost = 0;
+	node->most_cheap = 0;
 	return (node);
 }
 
@@ -90,15 +90,15 @@ t_popped	pop(t_stack *stk)
 		return (popped);
 	}
 	popped.error = SUCCESS;
-	popped.value = stk->top->value->v;
+	popped.value = stk->top->value;
 	node = stk->top;
-	stk->top = stk->top->next;
+	stk->top = node->next;
 	if (stk->bottom == node)
 		stk->bottom = NULL;
 	else
 		stk->top->prev = NULL;
-	stk->size--;
-	free(node->value);
 	free(node);
+	node = NULL;
+	stk->size--;
 	return (popped);
 }

@@ -6,51 +6,50 @@
 /*   By: nfigueir <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 07:43:51 by nfigueir          #+#    #+#             */
-/*   Updated: 2024/08/20 09:03:33 by nfigueir         ###   ########.fr       */
+/*   Updated: 2024/08/21 11:33:21 by nfigueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/sort_util.h"
 
-t_value	*find_max(t_stack *stk)
+t_popped	find_max(t_stack *stk)
 {
-	t_value	*max;
-	int		i;
+	t_popped	max;
 	t_node	*p;
 
 	if (!stk)
-		return (NULL);
-	i = 0;
-	p = stk->top;
-	max = p->value;
-	while (p && i < stk->size)
 	{
-		if (max->v < p->value->v)
-		{
-			max = p->value;
-			max->index = i;
-		}
+		max.error = 1;
+		return (max);
+	}
+	p = stk->top;
+	max.value = p->value;
+	while (p)
+	{
+		if (max.value < p->value)
+			max.value = p->value;
 		p = p->next;
-		i++;
 	}
 	return (max);
 }
 
-t_value	*find_min(t_stack *stk)
+t_popped	find_min(t_stack *stk)
 {
-	t_value	*min;
-	int		i;
-	t_node	*p;
+	t_popped	min;
+	int			i;
+	t_node		*p;
 
+	if (!stk)
+		return ((t_popped){-1, -1, -1});
 	p = stk->top;
-	min = p->value;
+	min.value = p->value;
 	i = 0;
 	while (p && i < stk->size)
 	{
-		if (min->v > p->value->v)
+		if (min.value > p->value)
 		{
-			min = p->value;
-			min->index = i;
+			min.value = p->value;
+			min.index = i;
 		}
 		i++;
 		p = p->next;
@@ -69,7 +68,7 @@ int is_sorted(t_stack *a)
 	p = a->top;
 	while(p)
 	{
-		if (p->next && (p->value->v > p->next->value->v))
+		if (p->next && (p->value > p->next->value))
 				return (0);
 		p = p->next;
 	}
