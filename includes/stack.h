@@ -32,23 +32,12 @@ typedef struct s_node
 	int				value;
 	struct s_node	*next;
 	struct s_node	*prev;
-	//int				v;
 	int				index;
 	struct s_node	*target;
 	int				above;
 	int				most_cheap;
 	int				cost;
 }					t_node;
-
-// typedef struct s_value
-// {
-// 	int		v;
-// 	int		index;
-// 	t_node	*target;
-// 	int		above;
-// 	int		most_cheap;
-// 	int		cost;
-// }		t_value;
 
 typedef struct s_stack
 {

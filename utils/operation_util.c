@@ -32,11 +32,8 @@ int	swap(t_stack *stk)
 	return SUCCESS;
 }
 
-void	add_bottom (t_stack *stk, int value)
+void	add_bottom (t_stack *stk, t_node *new)
 {
-	t_node	*new;
-
-	new = create_node(value);
 	if (!new || !stk)
 		return;
 	new->prev = stk->bottom;

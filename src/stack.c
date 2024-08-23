@@ -60,11 +60,8 @@ t_stack	*create_stack(void)
 	return (stk);
 }
 
-void	push(t_stack *stk, int value)
+void	push(t_stack *stk, t_node *new)
 {
-	t_node	*new;
-
-	new = create_node(value);
 	if (!new || !stk)
 		return;
 	new->next = stk->top;
@@ -74,8 +71,6 @@ void	push(t_stack *stk, int value)
 		stk->top->prev = new;
 	stk->top = new;
 	stk->size++;
-	// index do node
-	//stk->top->value->index = stk->size - 1; TODO: DELETE
 }
 
 t_popped	pop(t_stack *stk)
