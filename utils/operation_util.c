@@ -45,19 +45,12 @@ void	add_bottom (t_stack *stk, t_node *new)
 	stk->size++;
 }
 
-t_popped	pop_bottom (t_stack *stk)
+t_node	*pop_bottom (t_stack *stk)
 {
 	t_node	*node;
-	t_popped	popped;
 
-	if (!stk || stk->size == 0)
-	{
-		popped.error = EMPTY_STACK;
-		popped.value = -42;
-		return (popped);
-	}
-	popped.error = SUCCESS;
-	popped.value = stk->bottom->value;
+	if (!stk || !stk->top)
+		return (NULL);
 	node = stk->bottom;
 	stk->bottom = stk->bottom->prev;
 	if (stk->top == node)
@@ -65,9 +58,7 @@ t_popped	pop_bottom (t_stack *stk)
 	else
 		stk->bottom->next = NULL;
 	stk->size--;
-	free(node);
-	node = NULL;
-	return (popped);
+	return (node);
 }
 
 int	shift_up(t_stack *stk)

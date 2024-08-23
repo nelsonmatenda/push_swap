@@ -73,27 +73,20 @@ void	push(t_stack *stk, t_node *new)
 	stk->size++;
 }
 
-t_popped	pop(t_stack *stk)
+t_node	*pop(t_stack *stk)
 {
 	t_node	*node;
-	t_popped	popped;
 
-	if (!stk || stk->size == 0)
-	{
-		popped.error = EMPTY_STACK;
-		popped.value = -42;
-		return (popped);
-	}
-	popped.error = SUCCESS;
-	popped.value = stk->top->value;
+	if (!stk || !stk->top)
+		return (NULL);
+	// popped.error = SUCCESS;
+	// popped.value = stk->top->value;
 	node = stk->top;
 	stk->top = node->next;
 	if (stk->bottom == node)
 		stk->bottom = NULL;
 	else
 		stk->top->prev = NULL;
-	free(node);
-	node = NULL;
 	stk->size--;
-	return (popped);
+	return (node);
 }

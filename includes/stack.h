@@ -56,9 +56,9 @@ enum e_error
 	SUCCESS = 1
 };
 
-t_node		*create_node(int value);
-t_stack		*create_stack(void);
-void		push(t_stack *stk, int value);
-t_popped	pop(t_stack *stk);
+t_node	*create_node(int value);
+t_stack	*create_stack(void);
+void	push(t_stack *stk, t_node *new);
+t_node	*pop(t_stack *stk);
 
 #endif
