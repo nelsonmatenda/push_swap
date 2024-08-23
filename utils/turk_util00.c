@@ -3,42 +3,47 @@
 /*                                                        :::      ::::::::   */
 /*   turk_util00.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nfigueir <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: nfigueir <nfigueir@student.42luanda.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 07:42:47 by nfigueir          #+#    #+#             */
-/*   Updated: 2024/08/21 12:15:08 by nfigueir         ###   ########.fr       */
+/*   Updated: 2024/08/23 15:42:15 by nfigueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/turk_util00.h"
 #include "../includes/turk_util01.h"
 
-static void	set_target_in_b(t_stack *a, t_stack *b)
+void	sub(t_stack *a, t_node *node_b)
 {
-	t_node	*a_stk;
-	t_node	*b_stk;
-	t_node	*target_node;
+	t_node	*node_a;
+	t_node	*target;
 	long	target_value;
 
-	a_stk = a->top;
-	b_stk = b->top;
 	target_value = LONG_MAX;
+	node_a = a->top;
+	while (node_a)
+	{
+		if (node_a->value > node_b->value && node_a->value < target_value)
+		{
+			target_value = node_a->value;
+			target = node_a;
+		}
+		node_a = node_a->next;
+		if (target_value == LONG_MAX)
+			node_b->target = find_min_node(a);
+		else
+			node_b->target = target;
+	}
+}
+
+static void	set_target_in_b(t_stack *a, t_stack *b)
+{
+	t_node	*b_stk;
+
+	b_stk = b->top;
 	while (b_stk != NULL)
 	{
-		while (a_stk != NULL)
-		{
-			if ((b_stk->value < a_stk->value)
-				&& (a_stk->value < target_value))
-			{
-				target_value = a_stk->value;
-				target_node = a_stk;
-			}
-			a_stk = a_stk->next;
-		}
-		if (target_value == LONG_MAX)
-			b_stk->target = find_min_node(a);
-		else
-			b_stk->target = target_node;
+		sub(a, b_stk);
 		b_stk = b_stk->next;
 	}
 }
@@ -48,9 +53,9 @@ void	set_index(t_stack *stk)
 	int		i;
 	t_node	*p;
 
-	i = -1;
 	if (!stk || stk->top)
 		return;
+	i = -1;
 	p = stk->top;
 	while (++i < stk->size)
 	{
@@ -67,8 +72,6 @@ static void	cost(t_stack *a, t_stack *b)
 {
 	t_node	*p;
 
-	if (!a || !b)
-		return;
 	p = b->top;
 	while (p != NULL)
 	{

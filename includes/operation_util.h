@@ -16,8 +16,8 @@
 #include "stack.h"
 
 int			swap(t_stack *stk);
-void		add_bottom (t_stack *stk, int value);
-t_popped	pop_bottom (t_stack *stk);
+void	add_bottom (t_stack *stk, t_node *new);
+t_node	*pop_bottom (t_stack *stk);
 int			shift_up(t_stack *stk);
 int			shift_down(t_stack *stk);
 

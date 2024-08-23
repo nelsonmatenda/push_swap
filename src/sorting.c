@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   sorting.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nfigueir <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: nfigueir <nfigueir@student.42luanda.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 07:44:07 by nfigueir          #+#    #+#             */
-/*   Updated: 2024/08/21 11:49:05 by nfigueir         ###   ########.fr       */
+/*   Updated: 2024/08/23 15:31:37 by nfigueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/sorting.h"
 #include "../includes/turk.h"
+#include "../includes/exit.h"
 
 static int	is_in_range(int a, int b, int c)
 {
@@ -55,8 +56,6 @@ static void	sort_small_case(t_stack *a, t_stack *b)
 	while (a->size > 3)
 	{
 		min = find_min(a);
-		if (min.error == -1)
-			return;
 		if (min.index < a->size / 2)
 			reverse = 1;
 		else
@@ -77,15 +76,14 @@ static void	sort_small_case(t_stack *a, t_stack *b)
 
 void	sorting(t_stack *a, t_stack *b)
 {
-	(void)b;
 	if (a->size < 2)
-		return;
+		ft_exit(a, b, EXIT_SUCCESS, NULL);
 	if (a->size == 2)
 		sa(a);
 	else if (a->size == 3)
 		sort_three(a);
 	else if (a->size <= 5)
 		sort_small_case(a, b);
-	else //if (a->size > 5)
+	else
 		turk_sort(a, b);
 }

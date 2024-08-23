@@ -23,7 +23,6 @@
 typedef struct s_popped
 {
 	int	value;
-	int	error;
 	int	index;
 }		t_popped;
 

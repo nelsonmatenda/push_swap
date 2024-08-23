@@ -36,7 +36,6 @@ int main(int ac, char **av)
 {
 	t_stack	*a;
 	t_stack	*b;
-	//int		i;
 
 	if (ac < 2)
 		return (*(int *)ft_exit(NULL, NULL, EXIT_SUCCESS, NULL));
@@ -51,5 +50,7 @@ int main(int ac, char **av)
 	if (!a)
 		return (*(int *)ft_exit(a, b, NULL_POINTER, NULL));
 	sorting(a, b);
+	if (!is_sorted(a))
+		return (*(int *)ft_exit(a, b, SORT_ERROR, NULL));
 	return (*(int *)ft_exit(a, b, EXIT_SUCCESS, NULL));
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   turk.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: nfigueir <nfigueir@student.42luanda.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 07:43:13 by nfigueir          #+#    #+#             */
-/*   Updated: 2024/08/22 09:48:14 by codespace        ###   ########.fr       */
+/*   Updated: 2024/08/23 15:16:28 by nfigueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,12 +57,9 @@ void	turk_sort(t_stack *a, t_stack *b)
 {
 	t_node	*min_node_a;
 
-	if (!a || !b)
-		return;
-	while (a->size > 3 && !is_sorted(a))
+	while (a->size > 3)
 		pb(a, b);
-	if (!is_sorted(a))
-		sort_three(a);
+	sort_three(a);
 	while (b->size || b->top)
 	{
 		init_sort_turk(a, b);
