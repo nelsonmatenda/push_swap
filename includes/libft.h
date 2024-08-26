@@ -13,10 +13,9 @@
 #ifndef LIBFT_H
 # define LIBFT_H
 
-#include "../includes/stack.h"
+# include "../includes/stack.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	**ft_split(char const *s, char c);
 
 #endif
-

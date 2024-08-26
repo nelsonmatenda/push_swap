@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/turk_util01.h"
+#include "../includes/turk.h"
 
 t_node	*find_min_node(t_stack *stk)
 {

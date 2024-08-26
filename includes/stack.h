@@ -13,12 +13,10 @@
 #ifndef STACK_H
 # define STACK_H
 
-#include <limits.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <stdio.h> // TODO: dev
-
-//typedef struct s_value t_value;
+# include <limits.h>
+# include <stdlib.h>
+# include <unistd.h>
+# include <stdio.h> // TODO: dev
 
 typedef struct s_popped
 {
@@ -42,7 +40,7 @@ typedef struct s_stack
 {
 	t_node	*top;
 	t_node	*bottom;
-	int	size;
+	int		size;
 }			t_stack;
 
 enum e_error

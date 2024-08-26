@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/sort_util.h"
+#include "../includes/sorting.h"
 
 t_popped	find_min(t_stack *stk)
 {
@@ -37,7 +37,7 @@ t_popped	find_min(t_stack *stk)
 	return (min);
 }
 
-int is_sorted(t_stack *a)
+int	is_sorted(t_stack *a)
 {
 	t_node	*p;
 
@@ -46,10 +46,10 @@ int is_sorted(t_stack *a)
 	if (a->size == 1)
 		return (1);
 	p = a->top;
-	while(p)
+	while (p)
 	{
 		if (p->next && (p->value > p->next->value))
-				return (0);
+			return (0);
 		p = p->next;
 	}
 	return (1);

@@ -10,15 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PARSING_UTIL_H
-# define PARSING_UTIL_H
+#ifndef PARSING_H
+# define PARSING_H
 
-#include "../includes/stack.h"
+# include "../includes/exit.h"
+# include "../includes/libft.h"
+# include "../includes/operation.h"
 
 void	ft_free_args(char **args);
 long	ft_atol(const char *str);
-int	is_whitespace(char c);
-int	ft_isdigit(int c);
+int		is_whitespace(char c);
+int		ft_isdigit(int c);
 void	parsing(t_stack *a, int ac, char **av);
 
 #endif

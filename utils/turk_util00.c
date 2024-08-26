@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/turk_util00.h"
-#include "../includes/turk_util01.h"
+#include "../includes/turk.h"
 
 static void	set_target_in_b(t_stack *a, t_stack *b)
 {

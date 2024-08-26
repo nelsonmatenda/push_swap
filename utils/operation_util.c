@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/operation_util.h"
+#include "../includes/operation.h"
 
 int	swap(t_stack *stk)
 {

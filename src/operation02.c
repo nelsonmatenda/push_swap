@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/operation_util.h"
+#include "../includes/operation.h"
 
 void	rrr(t_stack *a_stack, t_stack *b_stack)
 {

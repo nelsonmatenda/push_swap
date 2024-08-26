@@ -11,16 +11,15 @@
 /* ************************************************************************** */
 
 #ifndef TURK_H
-# define TURH_H
+# define TURK_H
 
-#include "../includes/stack.h"
-#include "../includes/operation00.h"
-#include "../includes/operation00.h"
-#include "../includes/operation02.h"
-#include "../includes/sorting.h"
-#include "../includes/turk_util00.h"
-#include "../includes/turk_util01.h"
+# include "../includes/sorting.h"
 
+void	set_index(t_stack *stk);
+void	init_sort_turk(t_stack *a, t_stack *b);
+t_node	*find_min_node(t_stack *stk);
+t_node	*get_most_cheap(t_stack *stk);
+void	sub(t_stack *a, t_node *node_b);
 void	turk_sort(t_stack *a, t_stack *b);
 
 #endif

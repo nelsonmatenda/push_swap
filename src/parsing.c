@@ -10,11 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/stack.h"
-#include "../includes/parsing_util.h"
-#include "../includes/exit.h"
-#include "../includes/libft.h"
-#include "../includes/operation_util.h"
+#include "../includes/parsing.h"
 
 static int	has_duplicate(int *arr, int size, int num)
 {

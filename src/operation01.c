@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/operation01.h"
+#include "../includes/operation.h"
 
 void	ra(t_stack *stk)
 {

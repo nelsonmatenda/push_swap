@@ -13,7 +13,7 @@
 #ifndef EXIT_H
 # define EXIT_H
 
-#include "../includes/stack.h"
+# include "../includes/stack.h"
 
 void	*ft_exit(t_stack *stk_a, t_stack *stk_b, int error, char *param);
 

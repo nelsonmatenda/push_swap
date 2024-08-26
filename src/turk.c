@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "../includes/turk.h"
-#include <stdio.h>
 
 static void	target_to_top(t_stack *stk, t_node *target, char stack)
 {

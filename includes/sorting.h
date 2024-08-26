@@ -13,13 +13,11 @@
 #ifndef SORTING_H
 # define SORTING_H
 
-#include "../includes/stack.h"
-#include "../includes/operation00.h"
-#include "../includes/operation01.h"
-#include "../includes/operation02.h"
-#include "../includes/sort_util.h"
+# include "../includes/operation.h"
 
-void	sort_three(t_stack *stk);
-void	sorting(t_stack *a, t_stack *b);
+t_popped	find_min(t_stack *stk);
+int			is_sorted(t_stack *a);
+void		sort_three(t_stack *stk);
+void		sorting(t_stack *a, t_stack *b);
 
 #endif

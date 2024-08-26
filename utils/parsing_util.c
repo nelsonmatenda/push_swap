@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/parsing_util.h"
+#include "../includes/parsing.h"
 
 void	ft_free_args(char **args)
 {

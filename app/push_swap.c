@@ -10,13 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/stack.h"
-#include "../includes/operation00.h"
-#include "../includes/operation01.h"
-#include "../includes/operation02.h"
+#include "../includes/operation.h"
+#include "../includes/parsing.h" // TODO: Arrumar melhor os headers
 #include "../includes/sorting.h"
-#include "../includes/exit.h"
-#include "../includes/parsing_util.h" // TODO: Arrumar melhor os headers
 
 void	print_stack(t_stack *stk)
 {
