@@ -12,6 +12,18 @@
 
 #include "../includes/exit.h"
 
+void	ft_putstr_fd(char *s, int fd)
+{
+	size_t	i;
+
+	i = 0;
+	while (s && s[i])
+	{
+		write(fd, &s[i], 1);
+		i++;
+	}
+}
+
 void	free_stack(t_stack *stk)
 {
 	t_node	*p;
@@ -54,7 +66,7 @@ void	error_msg(int error, char *p)
 		write (2, "Something failed during sort.", \
 		sizeof("Something failed during sort."));
 	if (p)
-		write(2, p, sizeof(p));
+		ft_putstr_fd(p, 2);
 	write(2, "\n", sizeof("\n"));
 }
 
