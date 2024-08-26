@@ -56,6 +56,8 @@ t_node	*pop_bottom (t_stack *stk)
 	else
 		stk->bottom->next = NULL;
 	stk->size--;
+	node->next = NULL;
+	node->prev = NULL;
 	return (node);
 }
 

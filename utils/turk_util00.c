@@ -6,7 +6,7 @@
 /*   By: nfigueir <nfigueir@student.42luanda.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 07:42:47 by nfigueir          #+#    #+#             */
-/*   Updated: 2024/08/23 15:42:15 by nfigueir         ###   ########.fr       */
+/*   Updated: 2024/08/26 08:06:37 by nfigueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,11 @@ void	sub(t_stack *a, t_node *node_b)
 			target = node_a;
 		}
 		node_a = node_a->next;
-		if (target_value == LONG_MAX)
-			node_b->target = find_min_node(a);
-		else
-			node_b->target = target;
 	}
+	if (target_value == LONG_MAX)
+		node_b->target = find_min_node(a);
+	else
+		node_b->target = target;
 }
 
 static void	set_target_in_b(t_stack *a, t_stack *b)

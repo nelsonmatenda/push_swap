@@ -6,7 +6,7 @@
 /*   By: nfigueir <nfigueir@student.42luanda.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 10:53:04 by nfigueir          #+#    #+#             */
-/*   Updated: 2024/08/23 11:35:41 by nfigueir         ###   ########.fr       */
+/*   Updated: 2024/08/26 11:15:34 by nfigueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ static int	ft_word_count(char const *s, char c)
 	int		count;
 
 	i = 0;
+	count = 0;
 	while (s && s[i])
 	{
 		if (s[i] != c)
@@ -61,7 +62,7 @@ char	**ft_split(char const *s, char c)
 	int		len;
 	char	**str;
 
-	str = (char **)malloc(sizeof(char *) * ft_word_count(s, c) + 1);
+	str = (char **)malloc(sizeof(char *) * (ft_word_count(s, c) + 1));
 	if (!str || !s)
 		return(ft_free(str, 0));
 	i = 0;

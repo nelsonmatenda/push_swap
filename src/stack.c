@@ -79,8 +79,6 @@ t_node	*pop(t_stack *stk)
 
 	if (!stk || !stk->top)
 		return (NULL);
-	// popped.error = SUCCESS;
-	// popped.value = stk->top->value;
 	node = stk->top;
 	stk->top = node->next;
 	if (stk->bottom == node)
@@ -88,5 +86,7 @@ t_node	*pop(t_stack *stk)
 	else
 		stk->top->prev = NULL;
 	stk->size--;
+	node->next = NULL;
+	node->prev = NULL;
 	return (node);
 }
