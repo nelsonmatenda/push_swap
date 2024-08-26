@@ -13,29 +13,6 @@
 #include "../includes/turk_util00.h"
 #include "../includes/turk_util01.h"
 
-void	sub(t_stack *a, t_node *node_b)
-{
-	t_node	*node_a;
-	t_node	*target;
-	long	target_value;
-
-	target_value = LONG_MAX;
-	node_a = a->top;
-	while (node_a)
-	{
-		if (node_a->value > node_b->value && node_a->value < target_value)
-		{
-			target_value = node_a->value;
-			target = node_a;
-		}
-		node_a = node_a->next;
-	}
-	if (target_value == LONG_MAX)
-		node_b->target = find_min_node(a);
-	else
-		node_b->target = target;
-}
-
 static void	set_target_in_b(t_stack *a, t_stack *b)
 {
 	t_node	*b_stk;
@@ -54,14 +31,14 @@ void	set_index(t_stack *stk)
 	t_node	*p;
 
 	if (!stk || stk->top)
-		return;
+		return ;
 	i = -1;
 	p = stk->top;
 	while (++i < stk->size)
 	{
 		p->index = i;
 		if (i <= stk->size / 2)
-			p->above= 1;
+			p->above = 1;
 		else
 			p->above = 0;
 		p = p->next;
@@ -93,15 +70,15 @@ static void	most_cheap(t_stack *stk)
 	t_node	*p;
 
 	if (!stk || !stk->bottom)
-		return;
+		return ;
 	p = stk->top;
 	min_cost = LONG_MAX;
 	while (p != NULL)
 	{
 		if (min_cost > p->cost)
 		{
-				min_cost = p->cost;
-				most_cheap = p;
+			min_cost = p->cost;
+			most_cheap = p;
 		}
 		p = p->next;
 	}

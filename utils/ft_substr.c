@@ -24,8 +24,8 @@ static size_t	ft_strlen(char const *s)
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t		i;
-	size_t		j;
+	size_t	i;
+	size_t	j;
 	char	*str;
 
 	if (!s)

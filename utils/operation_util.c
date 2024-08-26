@@ -12,12 +12,12 @@
 
 #include "../includes/operation_util.h"
 
-
 int	swap(t_stack *stk)
 {
 	t_node	*aux;
+
 	if (!stk)
-		return NULL_POINTER;
+		return (NULL_POINTER);
 	if (stk->size > 1)
 	{
 		aux = stk->top;
@@ -26,14 +26,14 @@ int	swap(t_stack *stk)
 		stk->top->next = aux;
 	}
 	else
-		return ONE_NODE;
-	return SUCCESS;
+		return (ONE_NODE);
+	return (SUCCESS);
 }
 
-void	add_bottom (t_stack *stk, t_node *new)
+void	add_bottom(t_stack *stk, t_node *new)
 {
 	if (!new || !stk)
-		return;
+		return ;
 	new->prev = stk->bottom;
 	if (stk->size == 0)
 		stk->top = new;
@@ -43,7 +43,7 @@ void	add_bottom (t_stack *stk, t_node *new)
 	stk->size++;
 }
 
-t_node	*pop_bottom (t_stack *stk)
+t_node	*pop_bottom(t_stack *stk)
 {
 	t_node	*node;
 

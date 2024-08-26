@@ -17,5 +17,6 @@
 
 t_node	*find_min_node(t_stack *stk);
 t_node	*get_most_cheap(t_stack *stk);
+void	sub(t_stack *a, t_node *node_b);
 
 #endif

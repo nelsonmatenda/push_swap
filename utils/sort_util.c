@@ -12,8 +12,6 @@
 
 #include "../includes/sort_util.h"
 
-
-
 t_popped	find_min(t_stack *stk)
 {
 	t_node		*p;

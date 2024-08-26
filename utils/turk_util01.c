@@ -51,3 +51,26 @@ t_node	*get_most_cheap(t_stack *stk)
 	}
 	return (NULL);
 }
+
+void	sub(t_stack *a, t_node *node_b)
+{
+	t_node	*node_a;
+	t_node	*target;
+	long	target_value;
+
+	target_value = LONG_MAX;
+	node_a = a->top;
+	while (node_a)
+	{
+		if (node_a->value > node_b->value && node_a->value < target_value)
+		{
+			target_value = node_a->value;
+			target = node_a;
+		}
+		node_a = node_a->next;
+	}
+	if (target_value == LONG_MAX)
+		node_b->target = find_min_node(a);
+	else
+		node_b->target = target;
+}
