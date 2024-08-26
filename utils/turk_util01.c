@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   turk_util01.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nfigueir <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 10:47:00 by nfigueir          #+#    #+#             */
-/*   Updated: 2024/08/20 09:06:19 by nfigueir         ###   ########.fr       */
+/*   Updated: 2024/08/22 09:53:31 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,19 @@ t_node	*find_min_node(t_stack *stk)
 {
 	t_node	*p;
 	t_node	*min_node;
+	int		i;
 	long	min;
 
 	if (!stk || !stk->top)
 		return (NULL);
 	p = stk->top;
 	min = LONG_MAX;
-	while (p)
+	i = -1;
+	while (++i < stk->size)
 	{
-		if (p->value->v < min)
+		if (p->value < min)
 		{
-			min = p->value->v;
+			min = p->value;
 			min_node = p;
 		}
 		p = p->next;
@@ -38,12 +40,12 @@ t_node	*get_most_cheap(t_stack *stk)
 {
 	t_node	*p;
 
-	if (!stk)
+	if (!stk || !stk->top)
 		return (NULL);
 	p = stk->top;
-	while (p)
+	while (p != NULL)
 	{
-		if (p->value->most_cheap)
+		if (p->most_cheap)
 			return (p);
 		p = p->next;
 	}

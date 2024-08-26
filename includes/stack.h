@@ -18,30 +18,25 @@
 #include <unistd.h>
 #include <stdio.h> // TODO: dev
 
-typedef struct s_value t_value;
+//typedef struct s_value t_value;
 
 typedef struct s_popped
 {
-	int		value;
-	int		error;
-}			t_popped;
+	int	value;
+	int	index;
+}		t_popped;
 
 typedef struct s_node
 {
-	t_value			*value;
+	int				value;
 	struct s_node	*next;
 	struct s_node	*prev;
+	int				index;
+	struct s_node	*target;
+	int				above;
+	int				most_cheap;
+	int				cost;
 }					t_node;
-
-typedef struct s_value
-{
-	int		v;
-	int		index;
-	t_node	*target;
-	int		above;
-	int		most_cheap;
-	int		cost;
-}		t_value;
 
 typedef struct s_stack
 {
@@ -52,15 +47,17 @@ typedef struct s_stack
 
 enum e_error
 {
+	ARG_ERROR = -32,
+	SORT_ERROR = -45,
 	NULL_POINTER = -70,
 	EMPTY_STACK = -77,
 	ONE_NODE = -33,
 	SUCCESS = 1
 };
 
-t_node		*create_node(int value);
-t_stack		*create_stack(void);
-void		push(t_stack *stk, int value);
-t_popped	pop(t_stack *stk);
+t_node	*create_node(int value);
+t_stack	*create_stack(void);
+void	push(t_stack *stk, t_node *new);
+t_node	*pop(t_stack *stk);
 
 #endif

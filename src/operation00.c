@@ -33,22 +33,24 @@ void	ss(t_stack *a_stk, t_stack *b_stk)
 
 void	pa(t_stack *a_stk, t_stack *b_stk)
 {
-	t_popped popped;
+	t_node *popped;
 
 	popped = pop(b_stk);
-	if (popped.error == EMPTY_STACK)
-		return;
-	push(a_stk, popped.value);
+	if (popped == NULL)
+		return ;
+	push(a_stk, popped);
+	popped = NULL;
 	write(1, "pa\n", sizeof("pa\n"));
 }
 
 void	pb(t_stack *a_stk, t_stack *b_stk)
 {
-	t_popped popped;
+	t_node *popped;
 
 	popped = pop(a_stk);
-	if (popped.error == EMPTY_STACK)
+	if (popped == NULL)
 		return;
-	push(b_stk, popped.value);
+	push(b_stk, popped);
+	popped = NULL;
 	write(1, "pb\n", sizeof("pb\n"));
 }
