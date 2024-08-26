@@ -31,8 +31,7 @@ void	print_stack(t_stack *stk)
 	puts("");
 }
 
-
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
 	t_stack	*a;
 	t_stack	*b;
@@ -42,7 +41,7 @@ int main(int ac, char **av)
 	a = create_stack();
 	if (!a)
 		return (*(int *)ft_exit(a, NULL, NULL_POINTER, NULL));
-	parsing(a, ac,av);
+	parsing(a, ac, av);
 	print_stack(a);
 	if (is_sorted(a))
 		return (*(int *)ft_exit(a, NULL, EXIT_SUCCESS, NULL));
