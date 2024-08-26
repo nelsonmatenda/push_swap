@@ -35,10 +35,11 @@ static void	*check_duplicate(t_stack *stk)
 	int		i;
 	int		*array;
 	t_node	*first;
+
 	array = (int *)malloc(sizeof(int) * stk->size);
 	if (!stk || !array)
 		return (free(array), NULL);
-	first =  stk->top;
+	first = stk->top;
 	i = -1;
 	while (++i < stk->size && first->next && first->next != stk->top)
 	{

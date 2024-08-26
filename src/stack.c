@@ -12,23 +12,6 @@
 
 #include "../includes/stack.h"
 
-// static t_value *create_value(int value)
-// {
-// 	t_value *val;
-
-// 	val = (t_value *)malloc(sizeof(t_value));
-// 	if (!val)
-// 		return (NULL);
-// 	//val->error = 0;
-// 	val->v = value;
-// 	val->index = 0;
-// 	val->target = NULL;
-// 	val->above = 0;
-// 	val->cost = -1;
-// 	val->most_cheap = 0;
-// 	return (val);
-// }
-
 t_node	*create_node(int value)
 {
 	t_node	*node;
@@ -63,11 +46,11 @@ t_stack	*create_stack(void)
 void	push(t_stack *stk, t_node *new)
 {
 	if (!new || !stk)
-		return;
+		return ;
 	new->next = stk->top;
-	if (stk->size == 0) // list is empty
+	if (stk->size == 0)
 		stk->bottom = new;
-	else // with element
+	else
 		stk->top->prev = new;
 	stk->top = new;
 	stk->size++;

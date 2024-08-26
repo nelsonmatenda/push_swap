@@ -43,7 +43,7 @@ static void	sort(t_stack *a, t_stack *b)
 		while ((a->top != cheap_node->target) && (b->top != cheap_node))
 			rr(a, b);
 	else if (!cheap_node->above
-			&& !cheap_node->target->above)
+		&& !cheap_node->target->above)
 		while ((a->top != cheap_node->target) && (b->top != cheap_node))
 			rrr(a, b);
 	set_index(a);

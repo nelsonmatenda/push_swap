@@ -56,7 +56,6 @@ void	error_msg(int error, char *p)
 	if (p)
 		write(2, p, sizeof(p));
 	write(2, "\n", sizeof("\n"));
-
 }
 
 void	*ft_exit(t_stack *stk_a, t_stack *stk_b, int error, char *param)
@@ -70,5 +69,3 @@ void	*ft_exit(t_stack *stk_a, t_stack *stk_b, int error, char *param)
 		return (exit(EXIT_FAILURE), (void *)EXIT_FAILURE);
 	return (exit(EXIT_SUCCESS), (void *)EXIT_SUCCESS);
 }
-
-
