@@ -38,7 +38,7 @@ int	main(int ac, char **av)
 	if (!a)
 		return (*(int *)ft_exit(a, NULL, NULL_POINTER, NULL));
 	parsing(a, ac, av);
-	print_stack(a);
+	//print_stack(a);
 	if (is_sorted(a))
 		return (*(int *)ft_exit(a, NULL, EXIT_SUCCESS, NULL));
 	b = create_stack();
