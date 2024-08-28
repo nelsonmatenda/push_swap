@@ -21,7 +21,7 @@ void	print_stack(t_stack *stk)
 	p = stk->top;
 	while (p != NULL)
 	{
-		printf("%d[%i] ", p->value, p->index);
+		printf("%d ", p->value);
 		p = p->next;
 	}
 	puts("");
@@ -38,7 +38,6 @@ int	main(int ac, char **av)
 	if (!a)
 		return (*(int *)ft_exit(a, NULL, NULL_POINTER, NULL));
 	parsing(a, ac, av);
-	//print_stack(a);
 	if (is_sorted(a))
 		return (*(int *)ft_exit(a, NULL, EXIT_SUCCESS, NULL));
 	b = create_stack();

@@ -15,5 +15,5 @@
 void	rrr(t_stack *a_stack, t_stack *b_stack)
 {
 	if (shift_down(a_stack) == SUCCESS && shift_down(b_stack) == SUCCESS)
-		write(1, "rrr\n", sizeof("rrr\n"));
+		write(1, "rrr\n", sizeof("rrr"));
 }
