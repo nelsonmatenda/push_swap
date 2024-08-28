@@ -18,7 +18,7 @@
 # include "../includes/operation.h"
 
 void	ft_free_args(char **args);
-long	ft_atol(const char *str);
+long	ft_atol(const char *str, t_stack *a);
 int		is_whitespace(char c);
 int		ft_isdigit(int c);
 void	parsing(t_stack *a, int ac, char **av);

@@ -88,7 +88,7 @@ static void	*get_value(t_stack *a, char **args)
 		if (!str_check(args[i]))
 			return (ft_free_args(args), \
 			ft_exit(a, NULL, ARG_ERROR, "Invalid arguments provided."));
-		value = ft_atol(args[i]);
+		value = ft_atol(args[i], a);
 		if (value > INT_MAX || value < INT_MIN)
 			return (ft_free_args(args), \
 			ft_exit(a, NULL, ARG_ERROR, "Number exceeds INT limit."));

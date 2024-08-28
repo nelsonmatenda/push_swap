@@ -25,7 +25,12 @@ void	ft_free_args(char **args)
 	free(args);
 }
 
-long	ft_atol(const char *str)
+int	ft_isdigit(int c)
+{
+	return ((c >= '0' && c <= '9'));
+}
+
+long	ft_atol(const char *str, t_stack *a)
 {
 	long	nb;
 	int		sign;
@@ -36,12 +41,14 @@ long	ft_atol(const char *str)
 		|| str[i] == '\r' || str[i] == '\t' || str[i] == '\v')
 		i++;
 	sign = 1;
-	while (str[i] == '-' || str[i] == '+')
+	if (str[i] == '-' || str[i] == '+')
 	{
 		if (str[i] == '-')
 			sign *= -1;
 		i++;
 	}
+	if (!ft_isdigit(str[i]))
+		return (*(long *)ft_exit(a, NULL, ARG_ERROR, "Invalid Argument"));
 	nb = 0;
 	while (ft_isdigit(str[i]))
 	{
@@ -57,9 +64,4 @@ int	is_whitespace(char c)
 {
 	return (c == ' ' || c == '\f' || c == '\n'
 		|| c == '\r' || c == '\t' || c == '\v');
-}
-
-int	ft_isdigit(int c)
-{
-	return ((c >= '0' && c <= '9'));
 }
