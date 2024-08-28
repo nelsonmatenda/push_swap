@@ -16,15 +16,13 @@ t_node	*find_min_node(t_stack *stk)
 {
 	t_node	*p;
 	t_node	*min_node;
-	int		i;
 	long	min;
 
 	if (!stk || !stk->top)
 		return (NULL);
 	p = stk->top;
 	min = LONG_MAX;
-	i = -1;
-	while (++i < stk->size)
+	while (p != NULL)
 	{
 		if (p->value < min)
 		{

@@ -48,7 +48,7 @@ void	push(t_stack *stk, t_node *new)
 	if (!new || !stk)
 		return ;
 	new->next = stk->top;
-	if (stk->size == 0)
+	if (stk->top == NULL)
 		stk->bottom = new;
 	else
 		stk->top->prev = new;

@@ -43,4 +43,3 @@ fclean:			clean
 				@printf "\n${BLUE}%-44s${RESET} ${GREEN}%s${RESET}\n" "Remover ${NAME}" "sucesso"
 
 re:				fclean all
-

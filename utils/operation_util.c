@@ -14,16 +14,15 @@
 
 int	swap(t_stack *stk)
 {
-	t_node	*aux;
+	int	aux;
 
 	if (!stk)
 		return (NULL_POINTER);
 	if (stk->size > 1)
 	{
-		aux = stk->top;
-		stk->top = aux->next;
-		aux->next = stk->top->next;
-		stk->top->next = aux;
+		aux = stk->top->value;
+		stk->top->value = stk->top->next->value;
+		stk->top->next->value = aux;
 	}
 	else
 		return (ONE_NODE);
@@ -50,7 +49,7 @@ t_node	*pop_bottom(t_stack *stk)
 	if (!stk || !stk->top)
 		return (NULL);
 	node = stk->bottom;
-	stk->bottom = stk->bottom->prev;
+	stk->bottom = node->prev;
 	if (stk->top == node)
 		stk->top = NULL;
 	else
