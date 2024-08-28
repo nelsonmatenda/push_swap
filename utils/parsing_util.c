@@ -37,8 +37,7 @@ long	ft_atol(const char *str, t_stack *a)
 	long	i;
 
 	i = 0;
-	while (str[i] == ' ' || str[i] == '\f' || str[i] == '\n'
-		|| str[i] == '\r' || str[i] == '\t' || str[i] == '\v')
+	while (str[i] == ' ' || (str[i] >= 'a' && str[i] <= 'r'))
 		i++;
 	sign = 1;
 	if (str[i] == '-' || str[i] == '+')
