@@ -35,14 +35,13 @@ int	main(int ac, char **av)
 	if (ac < 2)
 		return (*(int *)ft_exit(NULL, NULL, EXIT_SUCCESS, NULL));
 	a = create_stack();
-	b =  create_stack();
-	if (!a || !b)
+	if (!a)
 		return (*(int *)ft_exit(a, NULL, NULL_POINTER, NULL));
 	parsing(a, ac, av);
 	if (is_sorted(a))
 		return (*(int *)ft_exit(a, NULL, EXIT_SUCCESS, NULL));
 	b = create_stack();
-	if (!a)
+	if (!b)
 		return (*(int *)ft_exit(a, b, NULL_POINTER, NULL));
 	sorting(a, b);
 	if (!is_sorted(a))
