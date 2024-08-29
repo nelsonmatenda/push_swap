@@ -6,7 +6,7 @@ DIR_OBJ		= ./obj/
 DIR_UTIL	= ./utils/
 APP			= ./app/push_swap.c
 NAME		= push_swap
-FLAGS		= -Wall -Wextra -Werror
+FLAGS		= -g -Og -Wall -Wextra -Werror
 SRC_OBJ		= $(addprefix $(DIR_OBJ), $(SRCS:.c=.o))
 UTIL_OBJ	= $(addprefix $(DIR_OBJ), $(UTILS:.c=.o))
 ############  CORES ############
@@ -24,11 +24,11 @@ $(NAME):		$(APP) $(DIR_OBJ) $(SRC_OBJ) $(UTIL_OBJ)
 
 $(DIR_OBJ)%.o:	./src/%.c
 				@/bin/echo -n .
-				@cc $(FLAGS) -g -c $< -o $@
+				@cc $(FLAGS) -c $< -o $@
 
 $(DIR_OBJ)%.o:	./utils/%.c
 				@/bin/echo -n .
-				@cc $(FLAGS) -g -c $< -o $@
+				@cc $(FLAGS) -c $< -o $@
 
 $(DIR_OBJ):
 				@mkdir -p $(DIR_OBJ)
