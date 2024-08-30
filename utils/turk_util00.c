@@ -29,7 +29,7 @@ void	set_index(t_stack *stk)
 	int		i;
 	t_node	*p;
 
-	if (!stk || stk->top)
+	if (!stk || !stk->top)
 		return ;
 	i = -1;
 	p = stk->top;

@@ -15,6 +15,7 @@
 
 # include "../includes/stack.h"
 
+size_t	ft_strlen(char const *s);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	**ft_split(char const *s, char c);
 

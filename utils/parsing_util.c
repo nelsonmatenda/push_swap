@@ -30,6 +30,16 @@ int	ft_isdigit(int c)
 	return ((c >= '0' && c <= '9'));
 }
 
+void	set_signal(const char *str, long *i, int *sign)
+{
+	if (str[*i] == '-' || str[*i] == '+')
+	{
+		if (str[*i] == '-')
+			(*sign) *= -1;
+		(*i)++;
+	}
+}
+
 long	ft_atol(const char *str, t_stack *a)
 {
 	long	nb;
@@ -37,17 +47,12 @@ long	ft_atol(const char *str, t_stack *a)
 	long	i;
 
 	i = 0;
-	while (str[i] == ' ' || (str[i] >= 'a' && str[i] <= 'r'))
+	while (str[i] == ' ' || (str[i] >= 7 && str[i] <= 13))
 		i++;
 	sign = 1;
-	if (str[i] == '-' || str[i] == '+')
-	{
-		if (str[i] == '-')
-			sign *= -1;
-		i++;
-	}
+	set_signal(str, &i, &sign);
 	if (!ft_isdigit(str[i]))
-		return (*(long *)ft_exit(a, NULL, ARG_ERROR, "Invalid Argument"));
+		return (*(long *)ft_exit(a, NULL, ARG_ERROR, "next sign(not digit)"));
 	nb = 0;
 	while (ft_isdigit(str[i]))
 	{
@@ -56,6 +61,8 @@ long	ft_atol(const char *str, t_stack *a)
 			return (LONG_MAX);
 		i++;
 	}
+	if (str[i] != '\0')
+		return (*(long *)ft_exit(a, NULL, ARG_ERROR, "Invalid Argument"));
 	return (nb * sign);
 }
 
