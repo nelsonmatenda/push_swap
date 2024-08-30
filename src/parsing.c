@@ -45,7 +45,7 @@ static void	*check_duplicate(t_stack *stk)
 			ft_exit(stk, NULL, ARG_ERROR, "Duplicate numbers detected."));
 		first = first->next;
 	}
-	if (first->next == stk->top)
+	if (first == stk->bottom)
 	{
 		array[i] = first->value;
 		if (has_duplicate(array, i, array[i]))
