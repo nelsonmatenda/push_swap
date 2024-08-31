@@ -46,6 +46,5 @@ int	main(int ac, char **av)
 	sorting(a, b);
 	if (!is_sorted(a))
 		return (*(int *)ft_exit(a, b, SORT_ERROR, NULL));
-	print_stack(a);
 	return (*(int *)ft_exit(a, b, EXIT_SUCCESS, NULL));
 }
